@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        input {
+            width: 500px;
+            margin: 0 auto;
+            font-family: Orbitron;
+            color: #639;
+            font-size: 4rem;
+            text-align: center;
+            display: block;
+            border: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <form name="forme">
+        <input type="text" name="clock">
+    </form>
+
+    <script>
+        function runtime() {
+            let watch = document.forme.clock;
+            let thetime = new Date();
+            let hr = thetime.getHours();
+            let mn = thetime.getMinutes();
+            let sc = thetime.getSeconds();
+            sc < 10 ? sc = "0" + sc : sc;
+
+            mn < 10 ? mn = "0" + mn : mn;
+
+            if (hr > 12) {
+                hr = hr - 12;
+                watch.value = hr + ":" + mn + ":" + sc + " PM";
+            } else {
+                watch.value = hr + ":" + mn + ":" + sc + " AM";
+            }
+
+            setTimeout(runtime, 1000);
+        }
+        runtime();
+    </script>
+</body>
+
+</html>

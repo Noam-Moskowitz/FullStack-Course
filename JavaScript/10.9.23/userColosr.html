@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Color HW</title>
+</head>
+
+<body>
+    <form name="forme">
+        <label for="">Enter A Background Color</label>
+        <input type="text" name="user">
+        <br>
+        <input type="button" value="Click To Change" onclick="change()">
+    </form>
+    <script>
+        function change() {
+            let userColor = document.forme.user.value;
+            document.bgColor = userColor
+        }
+    </script>
+</body>
+
+</html>

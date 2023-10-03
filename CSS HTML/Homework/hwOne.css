@@ -1,0 +1,63 @@
+body{
+    background-color: darkcyan;
+    font-size: 20pt;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+h1{
+    font-size: 60pt;
+    color: darkgoldenrod;
+    text-align: center;
+}
+p{
+    text-align: justify;
+    line-height: 1.5;
+
+}
+.Bold{
+    color: red;
+    font-weight: bold;
+    font-size: 35pt;
+}
+ #Tilt{
+    font-style: italic;
+    color: chocolate;
+ }
+ a:link{
+    font-size: 45pt;
+    font-weight: bold;
+    color: blue;
+ }
+ a:visited{
+    color: aqua;
+ }
+ a:hover{
+    text-decoration: none;
+    color: darkmagenta;
+ }
+ div{
+    border: 12px solid black;
+    width: 800px;
+    background-color: coral;
+ }
+ #Div{
+    text-align: left;
+    color: thistle;
+    line-height: 2.5;
+    font-weight: bold;
+    font-style: italic;
+ }
+ div p{
+    text-align: justify;
+    color: blue;
+    line-height: 1.5;
+ }
+ div h2{
+    font-size: 45pt;
+    text-align: center;
+ }
+ div p .underline{
+    text-decoration: underline;
+ }
+ .underline{
+    text-decoration: underline;
+ }

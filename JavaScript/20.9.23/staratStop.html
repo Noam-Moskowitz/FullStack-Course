@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        input {
+            width: 500px;
+            margin: 15px auto;
+            font-family: orbitron;
+            color: #639;
+            font-size: 4rem;
+            display: block;
+            text-align: center;
+            border: 0;
+        }
+
+        div {
+            width: 250px;
+            text-align: center;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="forme">
+        <input type="text" name="clock">
+        <input type="button" value="Start" onclick="Start()">
+        <input type="button" value="Stop" onclick="Stop()">
+    </form>
+
+    <script>
+        let run;
+        function runTime() {
+            let watch = document.forme.clock;
+            let theTime = new Date();
+            let hr = theTime.getHours();
+            let mn = theTime.getMinutes();
+            let sc = theTime.getSeconds();
+            if (sc < 10) {
+                sc = "0" + sc;
+            }
+            if (mn < 10) {
+                mn = "0" + mn;
+            }
+            if (hr > 12) {
+                hr = hr - 12;
+                watch.value = hr + ":" + mn + ":" + sc + " PM";
+            } else {
+                watch.value = hr + ":" + mn + ":" + sc + " AM";
+            }
+
+        }
+        function Start() {
+            run = setInterval(runTime, 1000);
+        }
+        function Stop() {
+            clearInterval(run);
+        }
+    </script>
+</body>
+
+</html>

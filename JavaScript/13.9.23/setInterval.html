@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval</title>
+</head>
+
+<body>
+    <form name="forme">
+        <input type="text" name="clock">
+    </form>
+
+    <script>
+        function runtime() {
+            let watch = document.forme.clock;
+            let thetime = new Date();
+            let hr = thetime.getHours();
+            let mn = thetime.getMinutes();
+            let sc = thetime.getSeconds();
+            if (sc < 10) {
+                sc = "0" + sc;
+            }
+            if (mn < 10) {
+                mn = "0" + mn;
+            }
+            if (hr > 12) {
+                hr = hr - 12;
+                watch.value = hr + ":" + mn + ":" + sc + " PM";
+            } else {
+                watch.value = hr + ":" + mn + ":" + sc + " AM";
+            }
+
+            /* setTimeout(runtime, 1000); */
+        }
+        setInterval(runtime, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Grid</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        ul {
+            border: 1px solid #000;
+        }
+
+        .col {
+            background-color: tomato;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-8 col-lg-9 col-xl-10 px-0">
+                <ul>
+                    <li>6 Coumns in small screen</li>
+                    <li>8 columns un medium screen</li>
+                    <li>9 columns in large screen</li>
+                    <li>10 columns in xl screen</li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 px-0">
+                <ul>
+                    <li>6 Coumns in small screen</li>
+                    <li>4 columns un medium screen</li>
+                    <li>3 columns in large screen</li>
+                    <li>10 columns in xl screen</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">Same Size</div>
+            <div class="col">Same Size</div>
+            <div class="col">Same Size</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

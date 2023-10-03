@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Selectors</title>
+    <style>
+        body {
+            font-size: 20pt;
+        }
+
+        div>h1 {
+            background-color: navy;
+            color: white;
+        }
+
+        h1~p {
+            color: yellow;
+            background-color: maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <header>
+            <p>Content</p>
+            <h1>Content</h1>
+            <p>Content</p>
+            <h1>Content</h1>
+            <p>Content</p>
+        </header>
+        <p>Content</p>
+        <h1>Content</h1>
+        <p>Content</p>
+        <h1>Content</h1>
+        <p>Content</p>
+    </div>
+</body>
+
+</html>

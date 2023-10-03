@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Page Position</title>
+    <style>
+        /*Reset*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1000px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        header {
+            width: 1000px;
+            height: 70px;
+            background-color: #500;
+            position: absolute;
+            top: 0;
+
+
+        }
+
+        header h1 {
+            font-size: 35px;
+            color: #fff;
+            text-align: center;
+            line-height: 2;
+        }
+
+        section {
+            width: 333.33px;
+            padding: 15px;
+            border: 1px solid black;
+            position: absolute;
+            top: 70px;
+        }
+
+        section h2 {
+            font-size: 18px;
+            color: #fff;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 11pt;
+            color: black;
+            text-align: justify;
+            line-height: 1.5;
+        }
+
+        .one {
+            background-color: #333;
+            left: 0px;
+        }
+
+        .two {
+            background-color: #666;
+            left: 333.33px;
+        }
+
+        .three {
+            background-color: #999;
+            left: 666.66px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>The Header</h1>
+        </header>
+        <section class="one">
+            <h2>The Section</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae est eget dignissim. In
+                posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae
+                est
+                eget dignissim. In posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.
+            </p>
+        </section>
+        <section class="two">
+            <h2>The Section</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae est eget dignissim. In
+                posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae
+                est
+                eget dignissim. In posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.
+            </p>
+        </section>
+        <section class="three">
+            <h2>The Section</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae est eget dignissim. In
+                posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor vitae
+                est
+                eget dignissim. In posuere hendrerit
+                sapien vitae vestibulum. Integer hendrerit ex eget purus vehicula, ut congue erat vulputate. In ac nulla
+                ut
+                tellus
+                fringilla dapibus eget at sapien. Aliquam a dolor sed libero porttitor semper nec a odio. Interdum et
+                malesuada fames ac
+                ante ipsum primis in faucibus. Pellentesque sit amet dui suscipit, tincidunt turpis et, facilisis
+                lectus.
+                Donec blandit
+                commodo eros, eget mollis leo facilisis vel. Maecenas non sollicitudin dolor. Aliquam dui arcu,
+                ullamcorper
+                vitae
+                sodales quis, euismod quis velit. Nulla pharetra nisi erat. Etiam rhoncus tellus dui, in sagittis ligula
+                sollicitudin
+                quis. Sed in ultricies ipsum, ut rutrum purus. Integer pretium libero non ipsum consectetur volutpat.
+                Nunc a
+                tempor leo,
+                pretium placerat sapien.
+            </p>
+        </section>
+    </div>
+</body>
+
+</html>

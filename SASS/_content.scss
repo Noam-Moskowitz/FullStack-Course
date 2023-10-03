@@ -1,0 +1,14 @@
+section{
+    width: 80vw;
+    padding: 20px;
+    background-color: #aaa;
+}
+section h2{
+    color: $textColor;
+    font-size: $headSize;
+}
+section p{
+    color: $textColor;
+    font-size: $headSize;
+    text-align: justify;
+}

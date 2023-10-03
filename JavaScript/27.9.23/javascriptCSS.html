@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript CSS</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1 id="head">Who Is Alice?</h1>
+    <div id="box"></div>
+
+    <script>
+        document.getElementById('head').onclick = function () {
+            let box = document.getElementById('box');
+            box.innerHTML = "<h2>Alice is your sister</h2>";
+            document.body.style.backgroundColor = "lightgrey";
+            box.style.color = "hotpink";
+            box.style.fontSize = "3rem";
+            /* box.innerText = "<h2>Alice is your sister</h2>"; */
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        label {
+            display: block;
+            color: crimson;
+            font-size: 1.5rem;
+        }
+
+        textarea {
+            width: 400px;
+            height: 250px;
+            resize: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="First-Name">First Name:</label>
+        <input type="text" id="First-Name"><br>
+
+        <label for="Last-Name">Last Name:</label>
+        <input type="text" id="Last-Name"><br>
+
+        <label for="">Hobbies</label>
+        <input type="checkbox" name="" id="">Books
+        <input type="checkbox" name="" id="">Music
+        <input type="checkbox" name="" id="">Movies
+        <input type="checkbox" name="" id="">Cars
+        <br><br>
+        <label for="">Gender</label>
+        <input type="radio" name="Gender">Male
+        <input type="radio" name="Gender">Female
+        <input type="radio" name="Gender">Other
+        <br><br>
+        <label for="">What Did I Do?</label>
+        <select name="" id="">
+            <option value="" selected disabled>Select</option>
+            <option value="">Tel Aviv</option>
+            <option value="">Ramat Gan</option>
+            <option value="">Holon</option>
+            <option value="">Haifa</option>
+            <option value="">Jerusalem</option>
+            <option value="">Ashdod</option>
+            <option value="">Bnei Brak</option>
+        </select>
+        <br><br>
+        <Label>What Do You Think</Label>
+        <textarea name="" id="" maxlength="10"></textarea>
+        <br><br>
+        <!-- <button>Click Me</button> Do Not Use In Form -->
+        <input type="button" value="Click ME">
+        <br>
+        <input type="reset" value="clear">
+        <input type="submit" value="Send">
+    </form>
+
+
+</body>
+
+</html>

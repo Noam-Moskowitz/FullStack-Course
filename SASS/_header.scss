@@ -1,0 +1,15 @@
+header{
+    background-color: magenta;
+    width: 100vw;
+    height: 70px;
+
+    @include desktop{
+        background-color: red;
+    }
+    @include tablet{
+        background-color: green;
+    }
+    @include mobile{
+        background-color: blue;
+    }
+}

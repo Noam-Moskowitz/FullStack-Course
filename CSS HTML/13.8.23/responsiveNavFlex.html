@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Nav</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            width: 500px;
+            height: 30px;
+            background-color: #500;
+        }
+
+        .hamburger {
+            width: 100%;
+            height: 30px;
+            background-color: #000;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding-left: 10px;
+            display: none;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            /* float: left; */
+        }
+
+        ul li a {
+            display: block;
+            width: 100px;
+            line-height: 1.5;
+            color: orange;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-right: 1px solid #fff;
+            text-align: center;
+        }
+
+        @media (max-width:600px) {
+            .hamburger {
+                display: block;
+                width: 100vw;
+            }
+
+            /*  li {
+                clear: both;
+            } */
+
+            ul li a {
+                background-color: #500;
+                border-bottom: 1px solid #fff;
+                line-height: 2;
+                width: 100vw;
+                text-align: center;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+            }
+
+            .hamburger:hover+ul {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav>ul>li*5>a{Linka} -->
+    <nav>
+        <div class="hamburger"> &#9776; </div>
+        <ul>
+            <li><a href="#">Linka</a></li>
+            <li><a href="#">Linka</a></li>
+            <li><a href="#">Linka</a></li>
+            <li><a href="#">Linka</a></li>
+            <li><a href="#">Linka</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

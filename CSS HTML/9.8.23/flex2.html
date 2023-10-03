@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: beige;
+            padding: 10px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .item {
+            background-color: crimson;
+            color: white;
+            /* margin: 15px; */
+            font-size: 1.5rem;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .height {
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item height">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+    </div>
+</body>
+
+</html>

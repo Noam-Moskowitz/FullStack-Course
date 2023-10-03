@@ -1,0 +1,23 @@
+button{
+    background-color: crimson;
+    color: white;
+    font-family: tahoma;
+    padding: 20px;
+    font-size: 2rem;
+}
+.cta{
+    @extend button;
+    width: 40vw;
+}
+.box1{
+    @extend .box;
+}
+.box2{
+    @extend .box;
+}
+.box3{
+    @extend .box;
+}
+.box4{
+    @extend .box;
+}

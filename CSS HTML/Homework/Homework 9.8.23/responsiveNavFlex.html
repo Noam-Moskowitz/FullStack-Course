@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Nav Flex</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            width: 50vw;
+            height: 10vh;
+            border: 1px solid #000;
+            background-color: red;
+        }
+
+        .hamburger {
+            width: 100%;
+            font-size: 1rem;
+            display: none;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            flex-basis: 10vw;
+            border: 1px solid #000;
+            height: 10vh;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            line-height: 1.5;
+            padding: 10px;
+        }
+
+        @media (min-height:600px) {
+            ul {
+                flex-direction: row;
+                border-bottom: 1px solid white;
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger:hover+ul {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="hamburger">&#9776;</div>
+        <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

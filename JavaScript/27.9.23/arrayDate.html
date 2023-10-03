@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Date</title>
+    <style>
+        #day {
+            color: red;
+            font-size: 12rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="day"></div>
+
+    <script>
+        let today = new Date();
+        let day = document.getElementById('day');
+        //day.innerHTML = "Today is " + today.getDay();
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        day.innerHTML = "Today Is " + days[today.getDay()];
+
+    </script>
+</body>
+
+</html>

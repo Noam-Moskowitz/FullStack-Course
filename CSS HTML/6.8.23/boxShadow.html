@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box-Shadow</title>
+    <style>
+        aside {
+            width: 350px;
+            height: 350px;
+            background-color: teal;
+            border-radius: 15px;
+            margin: 50px;
+            box-shadow: 5px 5px 15px black;
+        }
+
+        .btn {
+            margin: 50px;
+            background-color: aqua;
+            width: 170px;
+            height: 70px;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        .btn:hover {
+            box-shadow: inset 3px 3px 3px black;
+        }
+    </style>
+</head>
+
+<body>
+    <aside></aside>
+    <aside class="btn"></aside>
+</body>
+
+</html>

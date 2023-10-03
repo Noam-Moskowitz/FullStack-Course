@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מסכם מיון</title>
+    <script>
+        /* תרגיל 1*/
+        function one(){
+            var Number =prompt("אנא הזינו מספר","");
+            if (Number <= 100) {
+                alert("Small");
+            } else if ( Number > 1000 ) {
+                alert("Large");
+            } else {
+                alert("Medium");
+            }
+        }
+        /*תרגיל 2*/
+        function two(){
+           var firstName=prompt("אנא הקלידו שם פרטי","");
+            var lastName=prompt("אנא הקלידו שם משפחה","");
+            alert("שלום " + firstName + " " + lastName + ", ברוך שובך למערכת" );
+        }
+        /*תרגיל 3*/
+        function three() {
+            alert("שם משתמש:hackeruTester123");
+            var passWord=prompt("אנא הקישו סיסמא","");
+            if (passWord == "hackeru123456") {
+                alert("הזיהוי בוצע בהצלחה");
+            } else {
+                alert("הסיסמה שגויה, יש צורך בזיהוי");
+            }
+
+        }
+        /*תרגיל 4*/
+        function four() {
+            var userAge=prompt("אנא הזינו את גילכם","");
+            if (userAge <= 15) {
+                alert("אינך מורשה להיכנס");
+            } else if (userAge >= 19){
+                alert("אתה מוזמן להצטרף");
+            } else {
+                alert("אתה רשאי להיכנס באישור הורה");
+            }
+
+        }
+        /*תרגיל 5*/
+         function five() {
+            var num1 =parseFloat(prompt("אנא הזינו מספר",""));
+            var num2 =parseFloat(prompt("אנא הזינו מספר נוסף",""));
+            var num5 =parseFloat(prompt("אנא הזינו מספר נוסף",""));
+           var num3 =num1 + num2 + num5;
+           var num4 = num1-num2 - num5;
+           var question =prompt("אנא בחרו אחד מהסימנים הבאים +/-","");
+           if (question == "+"){
+           alert("הסכום הוא " + num3)
+           } else if ( question == "-"){
+            alert("הסכום הוא " + num4);
+           }
+           
+        }
+    </script>
+</head>
+<body style="background-color: bisque;">
+    <h1 style="direction: rtl; text-align: center;">פרוייקט מסכם מיון</h1>
+    
+    <hr>
+    <button style="font-size: 35px; color: black; background-color: cadetblue;position: relative; top: 10px;left:850px;" onclick="one()">תרגיל 1</button>
+   <button style="font-size: 35px; color: black; background-color: cadetblue;position: relative; top: 10px;left: 550px;" onclick="two()">תרגיל 2</button>
+   <button style="font-size: 35px; color: black; background-color: cadetblue;position: relative; top: 10px;left: 230px;" onclick="three()">תרגיל 3</button>
+   <button style="font-size: 35px; color: black; background-color: cadetblue;position: relative; top: 10px;left: -90px;" onclick="four()">תרגיל 4</button>
+   <button style="font-size: 35px; color: black; background-color: cadetblue;position: relative; top: 10px;left: -400px;" onclick="five()">תרגיל 5</button>
+   
+   <hr style="position: relative;top: 20px;">
+    <h2 style="direction: rtl; position: relative; right: 40px; top: 30px; font-size: 15px;">שם מלא:</h2>
+   <p style="direction: rtl; position: relative; right: 40px; top: 20px;">
+נועם מושקוביץ   </p>
+   <h3 style="direction: rtl; position: relative; right: 40px; top:40px; font-size: 15px;">מספר טלפון:</h3>
+    <p style="direction: rtl; position: relative; top: 35px; right: 40px;">054-610-7337</p>
+   <h4 style="direction: rtl; position: relative; right: 40px; top:40px; font-size: 15px;"> מה הדבר שהיה הכי מורכב בבחינה:</h4>
+     <p style="direction: rtl; position: relative; top: 35px; right: 40px;">אישית, התקשיתי קצת עם פונקציית ה “if else”. <br>
+
+מתוך כל הפונקציות והקוד שכתבתי במשך השיעורים, שיעורי בית, והפרוייקט. מצאתי את עצמי חוזר על הקוד בפונקציה הזו יותר מהשאר.
+</p>
+     <h5 style="direction: rtl; position: relative; right: 40px; top:40px; font-size: 15px;">מה הדבר שהכי נהניתי ממנו בשלב הבחינה?</h5>
+   <p style="direction: rtl; position: relative; top: 35px; right: 40px;">יש משהו נורא מספק מלקיחת דף ריק ולבנות משהו ממנו. כפתורים, עיצובים, פונקציות.<br> כיף לבנות משהו שעובד.</p>
+   <h6 style="direction: rtl; position: relative; right: 40px; top:40px; font-size: 15px;">האם ולמה אני חושב שהתחום מתאים לי?</h6>
+    <p style="direction: rtl; position: relative; top: 35px; right: 40px;">הייתי מסכם את המיון בתור חווית לימוד מעניינת ומהנה.<br>
+נורא נהניתי מהחומר הנלמד והצורה שבה איתמר העביר אותו. <br>בנוסף לכך אני חושב שהמיון נתן לי באמת טעימה של התחום שאני עומד להיכנס אליו, ובאמת גרם לי להחליט בין אם להמשיך ללמוד בתחום או למצוא משהו אחר</p>
+  
+    
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        input[type="button"] {
+            background-color: lightblue;
+            padding: 15px 20px;
+            font-size: 2rem;
+            color: #008;
+            border-radius: 8px;
+            margin-top: 15px;
+            width: 200px;
+        }
+
+        input[type="button"]:hover {
+            cursor: pointer;
+        }
+
+        ::placeholder {
+            color: magenta;
+            font-family: "comic sans ms";
+        }
+    </style>
+</head>
+
+<body>
+    <form name="forme">
+        <label for="">Name:</label>
+        <input type="text" name="uname" required placeholder="Name">
+        <br>
+        <label for="">Email:</label>
+        <input type="text" name="uemail" required>
+        <br>
+        <input type="submit" value="Send">
+    </form>
+    <script>
+        function theUser() {
+            var nameu = document.forme.uname.value;
+            var emailu = document.forme.uemail.value;
+            alert("Hello " + nameu + ", Your email is " + emailu + " Welcome to the system.")
+        }
+    </script>
+</body>
+
+</html>

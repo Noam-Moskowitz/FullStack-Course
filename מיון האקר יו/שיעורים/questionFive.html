@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <button onclick="calc()">click to calc</button>
+    <script>
+        function calc(){
+            var num1 =parseFloat(prompt("אנא הזינו מספר",""));
+            var num2 =parseFloat(prompt("אנא הזינו מספר נוסף",""));
+            var num5 =parseFloat(prompt("אנא הזינו מספר נוסף",""));
+           var num3 =num1 + num2 + num5;
+           var num4 = num1-num2 - num5;
+           var question =prompt("אנא בחרו אחד מהסימנים הבאים +/-","");
+           if (question == "+"){
+           alert("הסכום הוא " + num3)
+           } else if ( question == "-"){
+            alert("הסכום הוא " + num4);
+           }
+           
+        }
+    </script>
+</body>
+</html>

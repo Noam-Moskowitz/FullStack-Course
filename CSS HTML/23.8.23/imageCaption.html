@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Caption</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        figure {
+            width: 800px;
+            height: 600px;
+            margin: 30px auto;
+            overflow: hidden;
+        }
+
+        figcaption {
+            width: 800px;
+            height: 50px;
+            text-align: center;
+            background-color: rgba(0, 0, 255, 0.7);
+            line-height: 1.5;
+            font-size: 2rem;
+            color: white;
+            transition: all .8s ease-in-out;
+            opacity: 0;
+        }
+
+        img:hover+figcaption {
+            transform: translateY(-55px);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <figure>
+        <img src="winter.jpg" alt="winter">
+        <figcaption>The Winter Is Coming!</figcaption>
+    </figure>
+</body>
+
+</html>

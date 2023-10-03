@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modulo</title>
+</head>
+
+<body>
+
+
+    <script>
+        let z = 1
+        document.write("<table border='3'>");
+        for (let x = 1; x <= 10; x++) {
+            document.write("<tr>");
+            for (let y = 1; y <= 10; y++) {
+                if (z % 3 == 0 && z % 5 == 0) {
+                    document.write("<td style ='background-color:red'>" + "fizz  fazz " + z + "</td>");
+                } else if (z % 5 == 0) {
+                    document.write("<td style ='background-color:yellow'>" + "fazz " + z + "</td>");
+                } else if (z % 3 == 0) {
+                    document.write("<td style ='background-color:lightgrey'>" + "fizz " + z + "</td>");
+                } else {
+                    document.write("<td>" + z + "</td>");
+                }
+                z++;
+            }
+            document.write("</tr>");
+        }
+        document.write("</table border='3'>");
+    </script>
+</body>
+
+</html>

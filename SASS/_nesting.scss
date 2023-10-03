@@ -1,0 +1,39 @@
+nav{
+    width: $baseWidth;
+    height: 40px;
+    background-color: #ccc;
+    ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        a{
+            text-decoration: none;
+            display: block;
+            text-align: center;
+           /*  background-color: #007; */
+            color: white;
+            font-size: 1rem;
+            padding:8px 15px;
+            width: 200px;
+            line-height: 1.5;
+            &:hover{
+                background-color: white;
+                color: #007;
+            }
+        }
+    }
+    @include desktop{
+        a {
+            background-color: lightgreen;
+            color: yellow;
+    }
+    }
+    @include tablet{
+        background-color: lightcoral;
+        width: 100vw;
+    }
+    @include mobile{
+        background-color: lightsalmon;
+        width: 100vw;
+    }
+}

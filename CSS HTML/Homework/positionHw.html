@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Hw</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            width: 960px;
+            background-color: bisque;
+        }
+
+        table {
+            width: 960px;
+            border: solid 1px black;
+            border-collapse: collapse;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 8px;
+            background-color: bisque;
+        }
+
+        td {
+            text-align: center;
+            padding: 15px;
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+
+        section {
+            border: 10px solid black;
+            background-color: lightgray;
+            padding: 10px;
+            text-align: justify;
+            margin-top: 40px;
+            width: 960px;
+            box-sizing: border-box;
+
+        }
+
+        section h2 {
+            font-size: 25pt;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        section p {
+            text-align: justify;
+            line-height: 2;
+            font-size: 16pt;
+        }
+
+        section a img {
+            width: 60px;
+            position: fixed;
+            top: 765px;
+            left: 1370px;
+            rotate: -90deg;
+        }
+
+        footer img {
+            width: 1000px;
+            position: fixed;
+            top: 795px;
+            left: 290px;
+            z-index: 100;
+        }
+
+        aside img {
+
+
+
+            position: fixed;
+            left: 1200px;
+            top: 70px;
+
+        }
+
+        section.absolute img#flower {
+            width: 600px;
+            position: absolute;
+            left: 300px;
+            top: 1780px;
+            z-index: 2;
+
+        }
+
+        section.absolute img#butterfly {
+            width: 150px;
+            position: absolute;
+            top: 1900px;
+            left: 490px;
+            z-index: 4;
+        }
+
+        section.absolute {
+            margin-bottom: 800px;
+            margin-top: 10px;
+            background-color: white;
+            border: none;
+        }
+
+        section.absolute h2 {
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 35pt;
+            z-index: 10;
+            position: absolute;
+            top: 2050px;
+            left: 460px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <table>
+                <tr>
+                    <td><a href="#paraOne">First Paragraph</a></td>
+                    <td><a href="#paraTwo">Second Paragraph</a></td>
+                    <td><a href="#paraThree">Third Paragraph</a></td>
+                    <td><a href="#paraFour">Fourth Paragraph</a></td>
+                    <td><a href="#flower">Flower Power</a></td>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    <aside>
+        <img src="AdBanner.png" alt="Side Banner">
+    </aside>
+    <section>
+        <h2>Position Homework</h2>
+        <p id="paraOne">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus veniam nisi nihil recusandae perspiciatis
+            explicabo eius eaque? Impedit veritatis omnis totam harum. Dolorum, voluptates possimus id delectus minus
+            quidem hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex totam culpa, voluptatum cumque
+            fugiat hic itaque quisquam voluptates sapiente nam sequi sint. Perferendis mollitia vitae tempore magnam
+            nulla vero aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aliquid distinctio earum, eum
+            ut maxime! Quisquam tempora ratione quis laudantium optio aliquid, facere excepturi distinctio corrupti
+            deserunt nemo doloribus aliquam.
+        </p>
+        <p id="paraTwo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus veniam nisi nihil recusandae perspiciatis
+            explicabo eius eaque? Impedit veritatis omnis totam harum. Dolorum, voluptates possimus id delectus minus
+            quidem hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex totam culpa, voluptatum cumque
+            fugiat hic itaque quisquam voluptates sapiente nam sequi sint. Perferendis mollitia vitae tempore magnam
+            nulla vero aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aliquid distinctio earum, eum
+            ut maxime! Quisquam tempora ratione quis laudantium optio aliquid, facere excepturi distinctio corrupti
+            deserunt nemo doloribus aliquam.
+        </p>
+        <p id="paraThree">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus veniam nisi nihil recusandae perspiciatis
+            explicabo eius eaque? Impedit veritatis omnis totam harum. Dolorum, voluptates possimus id delectus minus
+            quidem hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex totam culpa, voluptatum cumque
+            fugiat hic itaque quisquam voluptates sapiente nam sequi sint. Perferendis mollitia vitae tempore magnam
+            nulla vero aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aliquid distinctio earum, eum
+            ut maxime! Quisquam tempora ratione quis laudantium optio aliquid, facere excepturi distinctio corrupti
+            deserunt nemo doloribus aliquam.
+        </p>
+        <p id="paraFour">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus veniam nisi nihil recusandae perspiciatis
+            explicabo eius eaque? Impedit veritatis omnis totam harum. Dolorum, voluptates possimus id delectus minus
+            quidem hic. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex totam culpa, voluptatum cumque
+            fugiat hic itaque quisquam voluptates sapiente nam sequi sint. Perferendis mollitia vitae tempore magnam
+            nulla vero aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos aliquid distinctio earum, eum
+            ut maxime! Quisquam tempora ratione quis laudantium optio aliquid, facere excepturi distinctio corrupti
+            deserunt nemo doloribus aliquam.
+        </p>
+        <a href="#top"><img src="Arrow.svg" alt="Arrow"></a>
+
+    </section>
+    <section class="absolute">
+        <img id="flower" src="Flower.jpg" alt="Flower">
+        <img id="butterfly" src="butterflyGif.gif" alt="Butterfly">
+        <h2>Flower Power!</h2>
+    </section>
+    <footer>
+        <img src="BottomBanner.png" alt="Bottom Banner">
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Selectors</title>
+    <style>
+        a {
+            font-size: 30pt;
+        }
+
+        a[title="home sweet home"] {
+            color: aqua;
+            background-color: navy;
+        }
+
+        a[title~="home"] {
+            color: yellow;
+            background-color: #300;
+        }
+
+        a[title*="ho"] {
+            color: yellow;
+            background-color: teal;
+        }
+
+        a[href^="https"] {
+            color: magenta;
+            background-color: purple;
+        }
+
+        a[href$="pdf"] {
+            color: purple;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#" title="home sweet home">Home</a></li>
+        <li><a href="#" title="home bitter home">About</a></li>
+        <li><a href="#" title="homosepian">News</a></li>
+        <li><a href="https://www.mako.co.il">Mako</a></li>
+        <li><a href="https://www.walla.co.il">Walla</a></li>
+        <li><a href="map.pdf">Download Map</a></li>
+    </ul>
+</body>
+
+</html>

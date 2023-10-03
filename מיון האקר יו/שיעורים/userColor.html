@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Her Color</title>
+</head>
+
+<body>
+    <button style="background-color: black;color:#fc0;font-size: 50px;" onclick="userColor()">Click</button>
+
+    <script>
+        function userColor() {
+            var userc = prompt("Choose a color", "");
+            if (userc == "pink") {
+                document.bgColor = "pink";
+            } else if (userc == "blue"){
+                document.bgColor = "blue"
+            } else if (userc == "yellow"){
+                document.bgColor = "yellow"
+            }
+            else {
+                document.bgColor = "black";
+            }
+        }
+    </script>
+</body>
+
+</html>

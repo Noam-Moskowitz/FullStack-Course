@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Vs Break</title>
+</head>
+
+<body>
+    <script>
+        function go2() {
+            for (x = 0; x < 100; x++) {
+                console.log("x = " + x);
+                if (x == 20) {
+                    /* break; */
+                    return;
+                }
+            }
+            console.log("after the loop");
+        }
+        go2();
+    </script>
+</body>
+
+</html>
