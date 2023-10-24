@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+    <style>
+        #btn,
+        #btn2 {
+            font-size: 3rem;
+            padding: 20px;
+            margin: 50px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">Click</button>
+    <button id="btn2">Click 2</button>
+
+    <script>
+        let btn = document.getElementById('btn');
+        let btn2 = document.getElementById('btn2');
+
+        btn.addEventListener('click', go2);
+        btn.addEventListener('contextmenu', go3);
+
+        btn2.addEventListener('click', function () {
+            console.log('Who Let The Dogs Out??');
+        });
+
+
+        function go2() {
+            alert('Good Evening');
+        }
+        function go3() {
+            alert('This Is The Right Click On The Mouse');
+        }
+    </script>
+</body>
+
+</html>
