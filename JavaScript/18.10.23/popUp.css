@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#btn{
+    display: block;
+    margin: 20px auto;
+    background-color: lightskyblue;
+    color: black;
+    padding: 20px;
+    font-size: 2rem;
+}
+#wrapper{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+#popup{
+    font-family: arial;
+    text-align: center;
+    width: 300px;
+    margin: 20%  auto;
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); 
+    background-color: #fff;
+    line-height: 2;
+}
+#close{
+    position: absolute;
+    right: 8px;
+    top: 3px;
+    cursor: pointer;
+}
+#popup a{
+    background-color: lightskyblue;
+    color: #000;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+}
+#popup a:hover{
+    background-color: rgb(177, 220, 247);
+}

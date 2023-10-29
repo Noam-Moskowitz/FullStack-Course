@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        //function without parameters and without returning value.
+        function go2() {
+            alert("Hello");
+        }
+        go2();
+
+        //function without parameters and with returning value.
+        function go3() {
+            return "Hello World";
+            /* whatever is written here wont happen bc of the return above. */
+        }
+        console.log(go3());
+
+        //function with parameters and without returning value.
+        function go4(eat, side = "Salad") {
+            let box = document.getElementById('box');
+            box.innerHTML += "Today We Eat: " + eat + " & " + side + "<br>";
+        }
+        go4("Falafel");
+        go4("Fish", "chips");
+
+        //function with parameters and with returning value.
+        function go5(num1 = 10, num2 = 20) {
+            return num1 * num2;
+        }
+        console.log(go5());
+        console.log(go5(20, 50));
+        console.log(go5(5));
+        console.log(go5(undefined, 1000));
+
+
+    </script>
+</body>
+
+</html>
