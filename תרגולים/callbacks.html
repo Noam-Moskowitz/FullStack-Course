@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        /*   const add = (num1, num2) => {
+              return num1 + num2;
+          }
+          const subtract = (num1, num2) => {
+              return num1 - num2;
+          }
+          const multi = (num1, num2) => {
+              return num1 * num2;
+          }
+          const divide = (num1, num2) => {
+              return num1 / num2;
+          } */
+
+
+        const Operaters = ['+', '-', '/', '*']
+
+        const calc = (num1, num2, callbackCalc) => {
+            document.querySelector('body').innerHTML = callbackCalc(num1, num2)
+        }
+        const op = prompt('Enter a Operater', "")
+        const num1 = +prompt('Enter first number', "")
+        const num2 = +prompt('Enter second number', "")
+
+        Operaters.forEach((item) => {
+
+        });
+
+
+        /*  //shortened if
+         op == '+' && calc(num1, num2, () => num1 + num2)
+ 
+         //regular if
+         if (op == '-') {
+             calc(num1, num2, () => num1 - num2)
+         } else if (op == '*') {
+             calc(num1, num2, () => num1 * num2)
+         }
+ 
+         //switch
+         switch (op) {
+             case '/': calc(num1, num2, () => num1 / num2)
+         }
+  */
+    </script>
+</body>
+
+</html>
