@@ -1,4 +1,5 @@
 const xhr = new XMLHttpRequest(); // new instance of class 'XMLHttpReqeust'
+const table = document.getElementById('table');
 
 xhr.onload = displayUser;
 
@@ -24,19 +25,12 @@ xhr.send();
 
 function displayUser() {
     const response = JSON.parse(xhr.responseText);
-    const response1 = response[0];
-    for (prop in response1) {
-        document.getElementById('heading').innerHTML += `<p class="cell">${prop}</p>`
-    }
-    for (i = 0; i < response.length; i++) {
-        let users = response[i];
-        let myDiv = document.createElement('div');
-        myDiv.className = 'row';
-        document.getElementById('jsOBJ').appendChild(myDiv);
-
-
-        for (let prop in users) {
-            myDiv.innerHTML += `<p class="cell">${users[prop]}</p>`
+    for (user of response) {
+        let row = table.insertRow();
+        for (key in user) {
+            let cell = row.insertCell();
+            let text = document.createTextNode(user[key]);
+            cell.appendChild(text)
         }
     }
 
