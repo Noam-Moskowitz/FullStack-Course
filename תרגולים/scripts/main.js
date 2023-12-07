@@ -19,6 +19,7 @@ for (user of users) {
     for (children of buttonDiv.children) {
         children.classList.add('btn');
         children.classList.add('m-1');
+        children.classList.add('opstions');
     }
 
     remove.textContent = 'מחיקה';
@@ -34,7 +35,6 @@ for (user of users) {
 
 submitBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log(event);
 
     const user = {
         fname: event.target.form['fname'].value,
@@ -74,3 +74,10 @@ submitBtn.addEventListener("click", (event) => {
     event.target.form.reset()
 
 });
+
+document.addEventListener("click", (event) => {
+    const eGreatGrandparent = event.target.parentElement.parentElement.parentElement;
+    if (event.target.textContent == 'מחיקה') {
+        eGreatGrandparent.innerHTML = '';
+    }
+})
