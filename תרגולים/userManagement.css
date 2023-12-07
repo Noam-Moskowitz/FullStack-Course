@@ -5,13 +5,21 @@
     direction: rtl;
 }
 
-.container-register {
-    background-color: rgb(216, 220, 253);
+.container-register,
+.container-login {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     width: 100vw;
+}
+
+.container-register {
+    background-color: rgb(216, 220, 253);
+}
+
+.container-login {
+    background-color: rgb(235, 235, 235);
 }
 
 .register-form {
@@ -72,7 +80,7 @@ th {
 }
 
 .btn-secondary {
-    background-color: rgb(241, 96, 77);
+    background-color: rgb(211, 20, 20);
     color: azure;
 }
 
