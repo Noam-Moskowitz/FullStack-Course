@@ -13,6 +13,9 @@ table {
     text-align: center;
     vertical-align: center;
 }
+tr:nth-child(even){
+    background-color: whitesmoke;
+}
 
 tr:first-child {
     background-color: lightblue;
