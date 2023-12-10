@@ -25,6 +25,11 @@ xhr.send();
 
 function displayUser() {
     const response = JSON.parse(xhr.responseText);
+    for (user in response[0]){
+            let cell = document.getElementById('firstRow').insertCell();
+            cell.textContent = user
+            document.getElementById('firstRow').appendChild(cell)
+    }
     for (user of response) {
         let row = table.insertRow();
         for (key in user) {
