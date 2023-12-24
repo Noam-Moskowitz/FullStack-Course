@@ -1,8 +1,7 @@
 import { TimeUtility } from "./timeUtility.js";
-const output = new TimeUtility(`output`);
-const clock = new TimeUtility(`clock`);
-const watch = new TimeUtility(`watch`);
+const output = new TimeUtility();
 
-output.createTimer();
-clock.createTimer();
-watch.createTimer();
+
+output.createTimer(`output`);
+output.createTimer(`clock`);
+output.createTimer(`watch`);

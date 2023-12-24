@@ -1,9 +1,8 @@
 class TimeUtility {
-    constructor(elementID) {
-        this.elementId = elementID
+    constructor() {
     }
 
-    createTimer() {
+    createTimer(elementID) {
         setInterval(() => {
             const date = new Date();
             const hr = date.getHours();
@@ -19,7 +18,7 @@ class TimeUtility {
             if (sc < 10) {
                 clock = `${hr}:${mn}:0${sc}`
             }
-            document.getElementById(this.elementId).innerHTML = clock;
+            document.getElementById(elementID).innerHTML = clock;
 
         }, 1000)
     }
