@@ -1,10 +1,12 @@
 class TimeUtility {
     constructor() {
+        let date = new Date();
+        let utcOffset = date.getTimezoneOffset();
+        console.log(utcOffset);
     }
 
     createTimer(elementID) {
         setInterval(() => {
-            const date = new Date();
             const hr = date.getHours().toString().padStart(2, `0`);
             const mn = date.getMinutes().toString().padStart(2, `0`);
             const sc = date.getSeconds().toString().padStart(2, `0`);
@@ -15,4 +17,3 @@ class TimeUtility {
         }, 1000)
     }
 }
-export { TimeUtility }
