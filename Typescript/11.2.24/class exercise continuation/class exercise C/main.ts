@@ -23,6 +23,9 @@ class Fullname{
 }
 
 class User{
+    static generateId(): number {
+        throw new Error("Method not implemented.");
+    }
     static capitalizeWord(last: string) {
         throw new Error("Method not implemented.");
     }
