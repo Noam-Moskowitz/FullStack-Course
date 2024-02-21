@@ -1,14 +1,16 @@
 import './Home.css';
 import React, { Component } from 'react';
+import ProductList from './ProductList';
 
 
 
 class Home extends Component {
-    state = {  } 
-    render() { 
+    state = {}
+    render() {
         return (
             <div className='home'>
                 {this.props.text}
+                <ProductList />
             </div>
         );
     }
