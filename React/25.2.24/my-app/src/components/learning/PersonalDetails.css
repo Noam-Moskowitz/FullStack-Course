@@ -1,0 +1,14 @@
+.divider{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: 1px dashed blue;
+padding: 20px;
+}
+
+.details{
+font-size: 1.2rem;
+text-decoration: underline wavy rebeccapurple;
+padding: 10px;
+}

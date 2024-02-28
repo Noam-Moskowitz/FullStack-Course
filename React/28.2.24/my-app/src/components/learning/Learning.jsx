@@ -3,6 +3,10 @@ import Clock from './Clock'
 import PersonalDetails from './PersonalDetails'
 import PersonalDetailsProps from './PersonalDetailsProps'
 import PersonalDetailsPropsObject from './PersonalDetailsPropsObject'
+import RandomNumAuto from './RandomNumAuto'
+import ClockFC from './ClockFC'
+import PersonalDetailsPropsFC from './PersonalDetailsPropsFC'
+import PersonalDetailsPropsObjectFC from './PersonalDetailsPropsObjectFC'
 
 
 function Learning() {
@@ -19,6 +23,10 @@ const details={
             <PersonalDetails />
             <PersonalDetailsProps fullName="Noam Moskowitz" />
             <PersonalDetailsPropsObject details = {details}/>
+            <RandomNumAuto/>
+            <ClockFC date = {new Date()}/>
+            <PersonalDetailsPropsFC fullName='Noam Moskowitz' />
+            <PersonalDetailsPropsObjectFC person={{fullName:`Noam Moskowitz`, phone:`0546107337`, email:`noammz101@gmail.com`}} />
         </div>
     )
 }
