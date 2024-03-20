@@ -6,7 +6,7 @@ export default function Login() {
 
   const [user, setUser] = useState( new UserAuth())
 
-  const [status, setStatus] = useState(``);
+  const [status, setStatus] = useState(null);
 
 
   const handleChange = (e) => {
@@ -24,16 +24,13 @@ export default function Login() {
       password: `qwerty123`
     };
 
-    try {
-      if (hardcodedUser.email === user.email &&
-        hardcodedUser.password === user.password) {
-        setStatus(`Login Succesful!`)
-      } else {
-        throw new Error(`Login Failed, Credentials Not Valid!`)
-      }
-    } catch (error) {      
-      setStatus(error.message)
+    if (hardcodedUser.email === user.email &&
+      hardcodedUser.password === user.password) {
+      setStatus(true)
+    } else {
+      setStatus(false)
     }
+
 
   }
 
@@ -68,7 +65,14 @@ export default function Login() {
 
       </form>
 
-      <div>{status}</div>
+
+      { status !=null&& (
+        <div>
+          {status===true && 'SUCCESS'}
+          {status===false && 'FAIL'}
+        </div>
+      )}
     </div>
+    
   )
 }
