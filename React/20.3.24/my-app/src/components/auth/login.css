@@ -1,5 +1,5 @@
-
-.loginForm,.form-styling{
+.loginForm,
+.form-styling {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -7,21 +7,22 @@
     justify-content: center;
 }
 
-.input-container{
+.input-container {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.input-container label{
+.input-container label {
     font-size: 1.2rem;
 }
 
-.input-container input,form :nth-child(3){
+.input-container input,
+.submit-btn {
     padding: 5px;
 }
 
-.loginForm :nth-child(3){
+.loginForm .submit-btn {
     background-color: lightseagreen;
     color: white;
     font-weight: bold;
@@ -30,8 +31,35 @@
     transition: all .5s;
 }
 
-.loginForm :nth-child(3):hover{
+.loginForm .submit-btn:hover {
     background-color: lightblue;
     color: black;
     cursor: pointer;
+}
+
+.error-display {
+    color: rgb(252, 75, 75);
+    animation: shake .5s 2;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    40% {
+        transform: translateX(10px);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
 }

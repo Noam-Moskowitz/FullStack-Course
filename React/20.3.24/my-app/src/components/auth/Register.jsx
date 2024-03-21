@@ -1,23 +1,48 @@
-import {React, useState} from 'react'
+import { React, useState } from 'react'
 import UserAuth from '../../models/UserAuth';
 
 
 const Register = () => {
 
-    const [user, setUser] = useState( new UserAuth())
+    const [user, setUser] = useState(new UserAuth());
+    const [errors, setErrors] = useState(null);
 
-    
+
     const handleChange = (e) => {
-        const currUser= new UserAuth(user.email, user.password);
-        currUser.updateField(e.target.name,e.target.value)
+        const currUser = new UserAuth(user.email, user.password);
+        currUser.updateField(e.target.name, e.target.value)
 
 
         setUser(currUser)
     }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(user);
+        if (validatedForm()) {
+            console.log(`Succecfully register user: ${user.email}`);
+        }
+    }
+
+    const validatedForm = () => {
+        let formIsValid = true;
+        const formErrors = {};
+
+        const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(user.email)) {
+            formErrors['email'] = "Please enter a valid email address";
+            formIsValid = false;
+        }
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{0,}$/;
+        if (!passwordRegex.test(user.password)) {
+            formErrors['password'] = "Password must contain at least one uppercase letter and a number";
+            formIsValid = false;
+        }
+
+
+
+        setErrors(formErrors);
+        return formIsValid
     }
 
     return (
@@ -33,6 +58,9 @@ const Register = () => {
                         onChange={handleChange}
                     />
                 </div>
+                <div className='error-display'>
+                    {errors && errors['email']}
+                </div>
                 <div className="input-container">
                     <label htmlFor="password">Password:</label>
                     <input
@@ -42,8 +70,12 @@ const Register = () => {
                         onChange={handleChange}
                     />
                 </div>
+                <div className='error-display'>
+                    {errors && errors['password']}
+                </div>
 
                 <input
+                    className='submit-btn'
                     type="submit"
                     value="Submit"
                 />

@@ -4,15 +4,17 @@ import UserAuth from '../../models/UserAuth';
 
 export default function Login() {
 
-  const [user, setUser] = useState( new UserAuth())
+  const [user, setUser] = useState(new UserAuth())
 
   const [status, setStatus] = useState(null);
 
+  const [errors, setErrors] = useState(null);
+
 
   const handleChange = (e) => {
-    const currUser= new UserAuth(user.email, user.password);
-    currUser.updateField(e.target.name,e.target.value)
-  
+    const currUser = new UserAuth(user.email, user.password);
+    currUser.updateField(e.target.name, e.target.value)
+
 
     setUser(currUser)
   }
@@ -24,14 +26,29 @@ export default function Login() {
       password: `qwerty123`
     };
 
-    if (hardcodedUser.email === user.email &&
-      hardcodedUser.password === user.password) {
-      setStatus(true)
-    } else {
-      setStatus(false)
+    if (validatedForm()) {
+      if (hardcodedUser.email === user.email &&
+        hardcodedUser.password === user.password) {
+        setStatus(true)
+      } else {
+        setStatus(false)
+      }
     }
 
+  }
 
+  const validatedForm = () => {
+    let formIsValid = true;
+    const formErrors = {};
+
+    const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(user.email)) {
+      formErrors['email'] = "Please enter a valid email address";
+      formIsValid = false;
+    }
+
+    setErrors(formErrors);
+    return formIsValid
   }
 
 
@@ -48,6 +65,9 @@ export default function Login() {
             onChange={handleChange}
           />
         </div>
+        <div className='error-display'>
+          {errors && errors['email']}
+        </div>
         <div className="input-container">
           <label htmlFor="password">Password:</label>
           <input
@@ -59,6 +79,7 @@ export default function Login() {
         </div>
 
         <input
+          className='submit-btn'
           type="submit"
           value="Submit"
         />
@@ -66,13 +87,13 @@ export default function Login() {
       </form>
 
 
-      { status !=null&& (
+      {status != null && (
         <div>
-          {status===true && 'SUCCESS'}
-          {status===false && 'FAIL'}
+          {status === true && 'SUCCESS'}
+          {status === false && 'FAIL'}
         </div>
       )}
     </div>
-    
+
   )
 }
