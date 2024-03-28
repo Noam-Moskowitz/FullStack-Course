@@ -25,42 +25,33 @@ export default function Login() {
     e.preventDefault()
     const hardcodedUser = {
       email: `noammz101@gmail.com`,
-      password: `qwerty123`
+      password: `Qwerty123`
     };
 
-    if (validatedForm()) {
-      if (hardcodedUser.email === user.email &&
-        hardcodedUser.password === user.password) {
+    const localErrors = user.validate();
+    if (Object.keys(localErrors).length <= 0) {
+      if (hardcodedUser.email === user.email && hardcodedUser.password === user.password) {
         setStatus(true)
       } else {
         setStatus(false)
       }
+    } else {
+      setStatus(null)
     }
+    setErrors(localErrors)
 
   }
 
-  const validatedForm = () => {
-    let formIsValid = true;
-    const formErrors = {};
 
-    const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(user.email)) {
-      formErrors['email'] = "Please enter a valid email address";
-      formIsValid = false;
-    }
 
-    setErrors(formErrors);
-    return formIsValid
-  }
-
-   const messageStyle={
-    color: status ? 'green':'red'
+  const messageStyle = {
+    color: status ? 'green' : 'red'
   }
   /* const messageClass=`${!status?"error-display":'succes'}`; */
-      const msgClass=classNames({
-        'error-display': !status,
-        'success':status
-    })
+  const msgClass = classNames({
+    'error-display': !status,
+    'success': status
+  })
 
 
   return (
@@ -87,6 +78,9 @@ export default function Login() {
             id='password'
             onChange={handleChange}
           />
+        </div>
+        <div className='error-display'>
+          {errors && errors['password']}
         </div>
 
         <input

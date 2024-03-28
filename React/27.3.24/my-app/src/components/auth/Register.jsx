@@ -18,32 +18,15 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (validatedForm()) {
+        const localErrors = user.validate();
+        if (Object.keys(localErrors).length < 0) {
             console.log(`Succecfully register user: ${user.email}`);
+        } else {
+            setErrors(localErrors)
         }
     }
 
-    const validatedForm = () => {
-        let formIsValid = true;
-        const formErrors = {};
 
-        const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(user.email)) {
-            formErrors['email'] = "Please enter a valid email address";
-            formIsValid = false;
-        }
-
-        const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{0,}$/;
-        if (!passwordRegex.test(user.password)) {
-            formErrors['password'] = "Password must contain at least one uppercase letter and a number";
-            formIsValid = false;
-        }
-
-
-
-        setErrors(formErrors);
-        return formIsValid
-    }
 
     return (
         <div className='form-styling'>

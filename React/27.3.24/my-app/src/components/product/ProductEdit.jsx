@@ -1,32 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Product } from '../../models/Product';
 
-
-const NewProduct = (props) => {
-
-    const [product, setProduct] = useState(new Product());
+const ProductEdit = ({ selectedProduct, callback }) => {
+    const [product, setProduct] = useState(selectedProduct);
     const [errors, setErrors] = useState(null);
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        const loaclErrors = product.validate();
-        if (Object.keys(loaclErrors).length == 0) {
-            props.callback(product)
-        } else {
-            setErrors(loaclErrors)
-        }
-
-    }
-
-
-
-    useEffect(() => {
-        if (errors) {
-            console.log(errors)
-        }
-    }, [errors])
-
-
 
     const handleChange = (e) => {
 
@@ -36,9 +13,24 @@ const NewProduct = (props) => {
         setProduct(currProduct);
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const loaclErrors = product.validate();
+        if (Object.keys(loaclErrors).length == 0) {
+            callback(product)
+        } else {
+            setErrors(loaclErrors)
+        }
+
+    }
+
+    useEffect(() => {
+        setProduct(selectedProduct);
+    }, [selectedProduct])
+
     return (
         <div>
-            <h1>Add New Product</h1>
+            <h1>Edit Product</h1>
             <form onSubmit={handleSubmit}>
                 <table>
                     <tbody>
@@ -52,6 +44,7 @@ const NewProduct = (props) => {
                                     id='id'
                                     name='id'
                                     min={0}
+                                    value={product.id}
                                     onChange={handleChange}
                                 />
                             </td>
@@ -66,6 +59,7 @@ const NewProduct = (props) => {
                                     type="text"
                                     id='pName'
                                     name='pName'
+                                    value={product.pName}
                                     onChange={handleChange}
                                 />
                             </td>
@@ -80,6 +74,7 @@ const NewProduct = (props) => {
                                     type="number"
                                     id='price'
                                     name='price'
+                                    value={product.price}
                                     onChange={handleChange}
                                 />
                             </td>
@@ -94,6 +89,7 @@ const NewProduct = (props) => {
                                     type="number"
                                     id='quantity'
                                     name='quantity'
+                                    value={product.quantity}
                                     onChange={handleChange}
                                 />
                             </td>
@@ -111,4 +107,4 @@ const NewProduct = (props) => {
     )
 }
 
-export default NewProduct
+export default ProductEdit
