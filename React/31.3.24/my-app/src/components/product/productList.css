@@ -1,0 +1,5 @@
+.product-list-container{
+    display: flex;
+    width: 100vw;
+    gap: 20vw;
+}
