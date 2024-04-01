@@ -4,7 +4,7 @@ function ProductView(props) {
     return (
         <div>
             <h1>View Product</h1>
-            <table>
+            <table className='product-view-form'>
                 <tbody>
                     <tr>
                         <td>ID:</td>

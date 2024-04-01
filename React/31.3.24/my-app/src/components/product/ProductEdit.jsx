@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Product } from '../../models/Product';
+import './newProduct.css'
 
 const ProductEdit = ({ selectedProduct, callback }) => {
     const [product, setProduct] = useState(selectedProduct);
@@ -31,7 +32,7 @@ const ProductEdit = ({ selectedProduct, callback }) => {
     return (
         <div>
             <h1>Edit Product</h1>
-            <form onSubmit={handleSubmit}>
+            <form className='product-form' onSubmit={handleSubmit}>
                 <table>
                     <tbody>
                         <tr>

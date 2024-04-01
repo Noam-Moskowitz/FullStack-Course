@@ -5,11 +5,11 @@ import Register from './components/auth/Register';
 import FormsMain from './components/forms/FormsMain';
 import Learning from './components/learning/Learning';
 
-import {BrowserRouter, Routes, Route , Link} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 
 function App() {
-  
+
 
   return (
     <div className="App">
@@ -30,12 +30,12 @@ function App() {
 
         <Routes>
 
-          <Route path='/learning' element={<Learning/>} />
-          <Route path='/' element={<Home text='this is the main area of our app'/>} />
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/forms' element={<FormsMain/>}/>
-          
+          <Route path='/learning' element={<Learning />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/forms' element={<FormsMain />} />
+
 
         </Routes>
 

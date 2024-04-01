@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Product } from '../../models/Product';
+import './newProduct.css'
 
 
 const NewProduct = (props) => {
@@ -29,11 +30,11 @@ const NewProduct = (props) => {
         }
     }, [errors])
 
-    useEffect(()=>{
+    useEffect(() => {
         if (product.id) {
             props.callback(product)
         }
-    },[product.id])
+    }, [product.id])
 
 
 
@@ -48,12 +49,12 @@ const NewProduct = (props) => {
     return (
         <div>
             <h1>Add New Product</h1>
-            <form onSubmit={handleSubmit}>
+            <form className='product-form' onSubmit={handleSubmit}>
                 <table>
                     <tbody>
                         <tr>
                             <td>
-                                <label htmlFor='pName'>Product Name</label>
+                                <label htmlFor='pName'>Product Name:</label>
                             </td>
                             <td>
                                 <input
@@ -67,7 +68,7 @@ const NewProduct = (props) => {
                         </tr>
                         <tr>
                             <td>
-                                <label htmlFor='price'>Price</label>
+                                <label htmlFor='price'>Price:</label>
                             </td>
                             <td>
                                 <input
@@ -81,7 +82,7 @@ const NewProduct = (props) => {
                         </tr>
                         <tr>
                             <td>
-                                <label htmlFor='quantity'>Quantity</label>
+                                <label htmlFor='quantity'>Quantity:</label>
                             </td>
                             <td>
                                 <input
