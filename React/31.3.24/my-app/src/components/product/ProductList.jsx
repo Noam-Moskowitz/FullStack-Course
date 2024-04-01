@@ -4,6 +4,7 @@ import NewProduct from './NewProduct';
 import './productList.css'
 import ProductView from './ProductView';
 import ProductEdit from './ProductEdit';
+import ProductConfirmDelete from './ProductConfirmDelete';
 
 
 const ProductList = () => {
@@ -12,7 +13,8 @@ const ProductList = () => {
         NONE: `NONE`,
         CREATE: `CREATE`,
         EDIT: `EDIT`,
-        VIEW: `VIEW`
+        VIEW: `VIEW`,
+        DELETE: `DELETE`
     }
 
     const ACTION_TYPES = {
@@ -22,7 +24,8 @@ const ProductList = () => {
         PRODUCT_EDITED: `PRODUCT_EDITED`,
         PRODUCT_VIEW: `PRODUCT_VIEW`,
         PRODUCT_VIEWED: `PRODUCT_VIEWED`,
-        PRODUCT_DELETE: `PRODUCT_DELETE`
+        PRODUCT_DELETE: `PRODUCT_DELETE`,
+        PRODUCT_DELETED: `PRODUCT_DELETED`
     }
 
 
@@ -70,9 +73,15 @@ const ProductList = () => {
             case ACTION_TYPES.PRODUCT_DELETE:
                 return {
                     ...state,
+                    uiState: UI_STATE.DELETE,
+                    selectedProduct: action.payload
+                }
+            case ACTION_TYPES.PRODUCT_DELETED:
+                return {
+                    ...state,
+                    uiState: UI_STATE.NONE,
                     products: state.products.filter(p => p.id !== action.payload.id)
                 }
-
         }
     }
 
@@ -123,6 +132,11 @@ const ProductList = () => {
                     {state.uiState === UI_STATE.VIEW && <ProductView callback={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEWED })} product={state.selectedProduct} />}
                     {state.uiState === UI_STATE.EDIT && <ProductEdit selectedProduct={state.selectedProduct} callback={
                         (product) => { dispatch({ type: ACTION_TYPES.PRODUCT_EDITED, payload: product }) }} />}
+                    {state.uiState === UI_STATE.DELETE && <ProductConfirmDelete
+                        callbackReject={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEWED })}
+                        callbackConfirm={(product) => dispatch({ type: ACTION_TYPES.PRODUCT_DELETED, payload: product })}
+                        selectedProduct={state.selectedProduct} />}
+
                 </div>
 
             </div>
