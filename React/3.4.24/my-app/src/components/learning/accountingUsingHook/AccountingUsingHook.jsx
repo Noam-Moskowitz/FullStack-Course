@@ -8,11 +8,7 @@ const AccountingUsingHook = () => {
     let toggleValue = true;
 
     useEffect(() => {
-        if (trHistoryFlag) {
-            toggleValue = false
-        } else {
-            toggleValue = true
-        }
+        toggleValue = trHistoryFlag ? false : true;
     }, [trHistoryFlag])
     return (
         <div className='container-fluid d-flex flex-column align-items-center justify-content-center'>
