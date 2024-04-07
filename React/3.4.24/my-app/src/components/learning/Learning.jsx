@@ -12,31 +12,35 @@ import EventHandling from './EventHandling'
 import EventHandlingCC from './EventHandlingCC'
 import Counter from './Counter'
 import RandomNumber from './RandomNumber/RandomNumber'
+import AccountingUsingHook from './accountingUsingHook/AccountingUsingHook'
+import ClockHook from './ClockHook'
 
 
 function Learning() {
-const details={
-    name:'Noam Moskowitz',
-    number: '0546107337',
-    email:'noammz101@gmail.com'
-}
+    const details = {
+        name: 'Noam Moskowitz',
+        number: '0546107337',
+        email: 'noammz101@gmail.com'
+    }
 
     return (
         <div>
             <h3>Learning</h3>
-            <RandomNumber/>
-            <Clock date={new Date()}/>
+            <ClockHook />
+            <AccountingUsingHook />
+            <RandomNumber />
+            <Clock date={new Date()} />
             <PersonalDetails />
             <PersonalDetailsProps fullName="Noam Moskowitz" />
-            <PersonalDetailsPropsObject details = {details}/>
-            <RandomNumAuto/>
-            <ClockFC date = {new Date()}/>
+            <PersonalDetailsPropsObject details={details} />
+            <RandomNumAuto />
+            <ClockFC date={new Date()} />
             <PersonalDetailsPropsFC fullName='Noam Moskowitz' />
-            <PersonalDetailsPropsObjectFC person={{fullName:`Noam Moskowitz`, phone:`0546107337`, email:`noammz101@gmail.com`}} />
-            <ThreeClocks/>
+            <PersonalDetailsPropsObjectFC person={{ fullName: `Noam Moskowitz`, phone: `0546107337`, email: `noammz101@gmail.com` }} />
+            <ThreeClocks />
             <EventHandling />
-            <EventHandlingCC/>
-            <Counter/>
+            <EventHandlingCC />
+            <Counter />
         </div>
     )
 }

@@ -1,40 +1,51 @@
 import { useEffect, useState } from "react";
 
-const useAccounting = (initalValue=0)=>{
-    const [balance, setBalance]=useState(initalValue);
-    const [trHistory, setTrHistory]= useState();
-    const [vat,setVat]=useState();
-    const [incomeTax,setIncomeTax]=useState();
+const useAccounting = (initalValue = 0) => {
+    const [balance, setBalance] = useState(initalValue);
+    const [trHistory, setTrHistory] = useState([]);
+    const [vat, setVat] = useState();
+    const [incomeTax, setIncomeTax] = useState();
+    const [totalDeposits, setTotalDeposits] = useState(0)
 
 
-    const deposit =(amount)=>{
-        setBalance(balance+amount);
-        setTrHistory([...trHistory,{deposit:amount, balance:balance}])
+    const deposit = (amount) => {
+        setBalance(Number(balance) + Number(amount));
+        setTrHistory([...trHistory, { action: `+${amount}`, balance: balance }])
+        setTotalDeposits(Number(totalDeposits) + Number(amount));
+        console.log(totalDeposits);
     }
 
-    const withdraw =(amount)=>{
-        setBalance(balance-amount);
-        setTrHistory([...trHistory,{withdraw:`-${amount}`, balance:balance}])
-    }   
+    const withdraw = (amount) => {
+        setBalance(balance - amount);
+        setTrHistory([...trHistory, { action: `-${amount}`, balance: balance }])
+    }
 
-    const calculateVat=(array)=>{
-        const totalDeposits;
-        for(obj of array){
-            for(key in obj){
-                if (key===`deposit`) {
-                    totalDeposits+=key.value;
-                }
-            }
+    const calculateIncomeTax = () => {
+        let taxBracket = .5;
+        if (totalDeposits <= 7010) {
+            taxBracket = .1;
+        } else if (totalDeposits <= 10060) {
+            taxBracket = .14;
+        } else if (totalDeposits <= 16150) {
+            taxBracket = .20;
+        } else if (totalDeposits <= 22440) {
+            taxBracket = .31;
+        } else if (totalDeposits <= 46690) {
+            taxBracket = .35;
+        } else if (totalDeposits <= 60130) {
+            taxBracket = .47;
         }
-        const vat = totalDeposits*0.17;
-        return vat;
+        setIncomeTax(Number(totalDeposits) * taxBracket)
     }
 
-    useEffect(()=>{
-        setVat(calculateVat());
-    },[trHistory])
 
-    return [balance, trHistory, vat, deposit, withdraw]
+    useEffect(() => {
+        setVat(totalDeposits * .17);
+        calculateIncomeTax()
+    }, [totalDeposits])
+
+
+    return [balance, trHistory, vat, incomeTax, deposit, withdraw]
 }
 
 export default useAccounting;
