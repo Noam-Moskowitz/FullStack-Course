@@ -5,19 +5,20 @@ const useAccounting = (initalValue = 0) => {
     const [trHistory, setTrHistory] = useState([]);
     const [vat, setVat] = useState();
     const [incomeTax, setIncomeTax] = useState();
-    const [totalDeposits, setTotalDeposits] = useState(0)
+    const [totalDeposits, setTotalDeposits] = useState(0);
+    const [totalWithdrawls, setTotalWithdrawls] = useState(0);
 
 
     const deposit = (amount) => {
         setBalance(Number(balance) + Number(amount));
         setTrHistory([...trHistory, { action: `+${amount}`, balance: balance }])
         setTotalDeposits(Number(totalDeposits) + Number(amount));
-        console.log(totalDeposits);
     }
 
     const withdraw = (amount) => {
         setBalance(balance - amount);
         setTrHistory([...trHistory, { action: `-${amount}`, balance: balance }])
+        setTotalWithdrawls(Number(totalWithdrawls) + Number(amount));
     }
 
     const calculateIncomeTax = () => {
@@ -35,14 +36,14 @@ const useAccounting = (initalValue = 0) => {
         } else if (totalDeposits <= 60130) {
             taxBracket = .47;
         }
-        setIncomeTax(Number(totalDeposits) * taxBracket)
+        setIncomeTax(Number(totalDeposits - totalWithdrawls) * taxBracket)
     }
 
 
     useEffect(() => {
-        setVat(totalDeposits * .17);
+        setVat((totalDeposits - totalWithdrawls) * .17);
         calculateIncomeTax()
-    }, [totalDeposits])
+    }, [totalDeposits, totalWithdrawls])
 
 
     return [balance, trHistory, vat, incomeTax, deposit, withdraw]
