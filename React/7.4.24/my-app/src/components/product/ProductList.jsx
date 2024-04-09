@@ -5,9 +5,23 @@ import './productList.css'
 import ProductView from './ProductView';
 import ProductEdit from './ProductEdit';
 import ProductConfirmDelete from './ProductConfirmDelete';
+import useApi from '../../hooks/useApi';
 
 
 const ProductList = () => {
+
+    const [response, fetchData] = useApi(`https://fakestoreapi.com/products`);
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    useEffect(() => {
+        if (response) {
+            dispatch({ type: ACTION_TYPES.PRODUCTS_RECEIVED, payload: response })
+            console.log(response);
+        }
+    }, [response])
 
     const UI_STATE = {
         NONE: `NONE`,
@@ -18,6 +32,7 @@ const ProductList = () => {
     }
 
     const ACTION_TYPES = {
+        PRODUCTS_RECEIVED: `PRODUCTS_RECEIVED`,
         PRODUCT_CREATE: `PRODUCT_CREATE`,
         PRODUCT_CREATED: `PRODUCT_CREATED`,
         PRODUCT_EDIT: `PRODUCT_EDIT`,
@@ -30,14 +45,19 @@ const ProductList = () => {
 
 
     const initialState = {
-        products: PRODUCTS,
         selectedProduct: null,
-        uiState: UI_STATE.NONE
+        uiState: UI_STATE.NONE,
+        products: []
     }
 
     const reducer = (state, action) => {
         // eslint-disable-next-line default-case
         switch (action.type) {
+            case ACTION_TYPES.PRODUCTS_RECEIVED:
+
+                return { ...state, products: action.payload }
+
+
             case ACTION_TYPES.PRODUCT_CREATE:
                 return { ...state, uiState: UI_STATE.CREATE };
 
@@ -86,9 +106,10 @@ const ProductList = () => {
     }
 
 
+
     const [state, dispatch] = useReducer(reducer, initialState);
-    
-    
+
+
 
     return (
         <div>
@@ -108,12 +129,12 @@ const ProductList = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {state.products.map(product => (
+                            {state.products && state.products.map(product => (
                                 <tr key={product.id}>
                                     <td>{product.id}</td>
-                                    <td>{product.pName}</td>
+                                    <td>{product.title}</td>
                                     <td>{product.price}</td>
-                                    <td>{product.quantity}</td>
+                                    <td>{product.category}</td>
                                     <td>
                                         <button onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEW, payload: product })}>Show</button>
                                         <button onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_EDIT, payload: product })}>Edit</button>
@@ -132,7 +153,7 @@ const ProductList = () => {
 
                     {state.uiState === UI_STATE.EDIT && <ProductEdit selectedProduct={state.selectedProduct} callback={
                         (product) => { dispatch({ type: ACTION_TYPES.PRODUCT_EDITED, payload: product }) }} />}
-                        
+
                     {state.uiState === UI_STATE.DELETE && <ProductConfirmDelete
                         callbackReject={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEWED })}
                         callbackConfirm={(product) => dispatch({ type: ACTION_TYPES.PRODUCT_DELETED, payload: product })}

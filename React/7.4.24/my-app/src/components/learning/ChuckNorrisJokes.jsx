@@ -1,15 +1,15 @@
 import React from 'react'
-import useChuckNorrisApi from '../../hooks/useChuckNorrisApi'
+import useApi from '../../hooks/useApi'
 
 const ChuckNorrisJokes = () => {
-    const [joke, fetchData] = useChuckNorrisApi()
+    const [response, fetchData] = useApi(`https://api.chucknorris.io/jokes/random`)
 
 
 
 
     return (
         <div>
-            <div>{joke ? <p>{joke}</p> : <p>Click the button to generate a joke</p>}</div>
+            <div>{response ? <p>{response.value}</p> : <p>Click the button to generate a joke</p>}</div>
             <div><button onClick={fetchData}>Generate New Joke</button></div>
         </div>
     )
