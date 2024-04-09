@@ -145,7 +145,7 @@ const ProductList = () => {
                         </tbody>
                     </table>
                 </div>
-                <div>
+                {state.uiState !== UI_STATE.NONE && <div className='p-5 position-absolute top-50 start-50 border border-5 rounded border-primary bg-primary-subtle d-flex justify-content-center align-items-center'>
                     {state.uiState === UI_STATE.CREATE && <NewProduct callback={
                         (product) => dispatch({ type: ACTION_TYPES.PRODUCT_CREATED, payload: product })} />}
 
@@ -160,6 +160,8 @@ const ProductList = () => {
                         selectedProduct={state.selectedProduct} />}
 
                 </div>
+
+                }
 
             </div>
         </div>
