@@ -15,6 +15,7 @@ import RandomNumber from './RandomNumber/RandomNumber'
 import AccountingUsingHook from './accountingUsingHook/AccountingUsingHook'
 import ClockHook from './ClockHook'
 import ProductListApi from './API/ProductListApi'
+import ChuckNorrisJokes from './ChuckNorrisJokes'
 
 
 function Learning() {
@@ -27,7 +28,8 @@ function Learning() {
     return (
         <div>
             <h3>Learning</h3>
-            <ProductListApi/>
+            <ChuckNorrisJokes />
+            <ProductListApi />
             <ClockHook />
             <AccountingUsingHook />
             <RandomNumber />
