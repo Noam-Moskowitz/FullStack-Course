@@ -10,10 +10,10 @@ import useApi from '../../hooks/useApi';
 
 const ProductList = () => {
 
-    const [response, fetchData] = useApi(`https://fakestoreapi.com/products`);
+    const [response, fetchData] = useApi();
 
     useEffect(() => {
-        fetchData()
+        fetchData(`https://fakestoreapi.com/products`)
     }, [])
 
     useEffect(() => {
@@ -145,7 +145,7 @@ const ProductList = () => {
                         </tbody>
                     </table>
                 </div>
-                {state.uiState !== UI_STATE.NONE && <div className='p-5 position-absolute top-50 start-50 border border-5 rounded border-primary bg-primary-subtle d-flex justify-content-center align-items-center'>
+                {state.uiState !== UI_STATE.NONE && <div className='p-5 position-fixed top-40 start-50 border border-5 rounded border-primary bg-primary-subtle d-flex justify-content-center align-items-center'>
                     {state.uiState === UI_STATE.CREATE && <NewProduct callback={
                         (product) => dispatch({ type: ACTION_TYPES.PRODUCT_CREATED, payload: product })} />}
 
