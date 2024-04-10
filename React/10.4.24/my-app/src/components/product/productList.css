@@ -1,0 +1,48 @@
+.product-list-container {
+    display: flex;
+    width: 100vw;
+    gap: 20vw;
+}
+
+.product-list-form,
+.product-view-form {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-list-form thead {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+.product-list-form tbody tr:nth-child(odd),
+.product-view-form tbody tr:nth-child(odd) {
+    background-color: rgb(235, 235, 235);
+}
+
+.product-list-form tbody tr:nth-child(even),
+.product-view-form tbody tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+.product-list-form td,
+.product-view-form td {
+    padding: 10px;
+}
+
+.product-list-form button {
+    margin: 2px;
+}
+
+.product-list-form button:hover,
+.product-view-form button:hover {
+    cursor: pointer;
+}
+
+.product-view-form tr :nth-child(1) {
+    font-weight: bold;
+}
+
+.product-view-form button {
+    width: 100%;
+}
