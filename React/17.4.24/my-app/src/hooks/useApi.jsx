@@ -3,12 +3,14 @@ import axios from 'axios'
 
 
 
-const useApi = (URL, method = METHOD.GET_ALL, propsPayload = null, isOnMount = true) => {
+const useApi = () => {
     const [response, setResponse] = useState();
     const [error, setError] = useState();
     const [isLoading, setIsLoading] = useState(false);
 
-    const [payload, setPayload] = useState(propsPayload);
+    const [URL, setURL] = useState()
+    const [method, setMethod] = useState()
+    const [payload, setPayload] = useState();
     const [isCallAPI, setIsCallAPI] = useState(false);
 
 
@@ -33,7 +35,7 @@ const useApi = (URL, method = METHOD.GET_ALL, propsPayload = null, isOnMount = t
                     break;
 
                 case METHOD.UPDATE:
-
+                    responseData = await axios.put(URL + payload.id, payload);
                     break;
 
                 case METHOD.DELETE:
@@ -55,21 +57,17 @@ const useApi = (URL, method = METHOD.GET_ALL, propsPayload = null, isOnMount = t
     }
 
 
-    useEffect(() => {
-        if (isOnMount) {
-            apiCall()
-        }
-    }, [])
+
 
     useEffect(() => {
-        if (!isOnMount) {
-            if (isCallAPI) {
-                apiCall()
-            }
+        if (isCallAPI) {
+            apiCall()
         }
     }, [isCallAPI])
 
-    const callAPI = (inputPayload) => {
+    const callAPI = (URL, method, inputPayload) => {
+        setURL(URL);
+        setMethod(method)
         setPayload(inputPayload);
         setIsCallAPI(true);
     }

@@ -7,7 +7,7 @@ const useProductForm = (callback, selectedProduct) => {
     const [product, setProduct] = useState(!selectedProduct ? new Product() : selectedProduct);
     const [errors, setErrors] = useState(null);
 
-    const [response, error, isLoading, callAPI] = useApi(`https://fakestoreapi.com/products/`, METHOD.CREATE, null, false);
+    const [response, error, isLoading, callAPI] = useApi();
 
     const handleChange = (e) => {
 
@@ -28,9 +28,9 @@ const useProductForm = (callback, selectedProduct) => {
                 delete currProduct.pName;
                 delete product.id;
 
-                callAPI(currProduct)
+                callAPI(`https://fakestoreapi.com/products/`, METHOD.CREATE, currProduct)
             } else {
-                callback(product)
+                callAPI(`https://fakestoreapi.com/products/`, METHOD.UPDATE, product)
             }
         } else {
             setErrors(loaclErrors)
