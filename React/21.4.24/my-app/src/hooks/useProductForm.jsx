@@ -11,7 +11,7 @@ const useProductForm = (callback, selectedProduct) => {
 
     const handleChange = (e) => {
 
-        const currProduct = new Product(product.id, product.pName, product.price, product.quantity);
+        const currProduct = new Product(product.id, product.title, product.price, product.quantity);
         currProduct.updateField(e.target.name, e.target.value)
 
         setProduct(currProduct);
@@ -23,15 +23,11 @@ const useProductForm = (callback, selectedProduct) => {
         if (Object.keys(loaclErrors).length === 0) {
             if (isCreateMode) {
 
-                const currProduct = new Product(product.id, product.pName, product.price, product.quantity);
-                currProduct.title = currProduct.pName;
-                delete currProduct.pName;
-                delete product.id;
+                const currProduct = new Product(product.id, product.title, product.price, product.quantity);
+                delete currProduct.id;
 
                 callAPI(`https://fakestoreapi.com/products/`, METHOD.CREATE, currProduct)
             } else {
-                product.title=product.pName
-                delete product.pName
                 callAPI(`https://fakestoreapi.com/products/`, METHOD.UPDATE, product)
             }
         } else {
@@ -49,10 +45,12 @@ const useProductForm = (callback, selectedProduct) => {
 
     useEffect(() => {
         if (response) {
-            if (method===METHOD.UPDATE||method===METHOD.CREATE) {
-                response.pName = response.title
-                delete response.title
-                callback(response)
+                const newProduct = new Product(response.id, response.title, response.price, response.quantity);
+            if (method===METHOD.UPDATE) {
+                console.log(product);
+                callback(product)
+            }else{
+                setProduct(newProduct)
             }
         }
     }, [response, method])

@@ -53,6 +53,8 @@ const useApi = () => {
 
             setIsLoading(false)
 
+            setIsCallAPI(false)
+
         }
     }
 
