@@ -97,7 +97,7 @@ const ProductList = () => {
 
 
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [response, error, isLoading, callAPI] = useApi();
+    const {response, error, isLoading, callAPI} = useApi();
 
     useEffect(() => {
         callAPI(`https://fakestoreapi.com/products`, METHOD.GET_ALL)
@@ -130,7 +130,6 @@ const ProductList = () => {
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Price</td>
-                                <td>Category</td>
                                 <td>Actions</td>
                             </tr>
                         </thead>
@@ -140,7 +139,6 @@ const ProductList = () => {
                                     <td>{product.id}</td>
                                     <td>{product.title}</td>
                                     <td>{product.price}</td>
-                                    <td>{product.category}</td>
                                     <td>
                                         <button onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEW, payload: product })}>Show</button>
                                         <button onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_EDIT, payload: product })}>Edit</button>
@@ -158,7 +156,7 @@ const ProductList = () => {
                     {state.uiState === UI_STATE.VIEW && <ProductView callback={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEWED })} product={state.selectedProduct} />}
 
                     {state.uiState === UI_STATE.EDIT && <ProductEdit selectedProduct={state.selectedProduct} callback={
-                        (product) => { dispatch({ type: ACTION_TYPES.PRODUCT_EDITED, payload: product }) }} />}
+                        (product) => { console.log(product); dispatch({ type: ACTION_TYPES.PRODUCT_EDITED, payload: product }) }} />}
 
                     {state.uiState === UI_STATE.DELETE && <ProductConfirmDelete
                         callbackReject={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEWED })}

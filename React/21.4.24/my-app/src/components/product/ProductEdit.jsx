@@ -32,13 +32,13 @@ const ProductEdit = ({ selectedProduct, callback }) => {
                         </tr>
                         <tr>
                             <td>
-                                <label htmlFor='pName'>Product Name</label>
+                                <label htmlFor='title'>Product Name</label>
                             </td>
                             <td>
                                 <input
                                     type="text"
-                                    id='pName'
-                                    name='pName'
+                                    id='title'
+                                    name='title'
                                     value={product.title}
                                     onChange={handleChange}
                                 />
@@ -59,21 +59,6 @@ const ProductEdit = ({ selectedProduct, callback }) => {
                                 />
                             </td>
                             {errors && errors['price']}
-                        </tr>
-                        <tr>
-                            <td>
-                                <label htmlFor='quantity'>Quantity</label>
-                            </td>
-                            <td>
-                                <input
-                                    type="number"
-                                    id='quantity'
-                                    name='quantity'
-                                    value={product.quantity}
-                                    onChange={handleChange}
-                                />
-                            </td>
-                            {errors && errors['quantity']}
                         </tr>
                         <tr>
                             <td colSpan={2} style={{ textAlign: 'right' }}>

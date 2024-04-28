@@ -3,7 +3,7 @@ import useApi, { METHOD } from '../../hooks/useApi'
 
 function ProductView({ product, callback }) {
 
-    const [response, error, isLoading, callAPI] = useApi();
+    const {response, error, isLoading, callAPI} = useApi();
 
     useEffect(() => {
         callAPI(`https://fakestoreapi.com/products/`, METHOD.GET_ONE, { id: product.id })
@@ -28,10 +28,6 @@ function ProductView({ product, callback }) {
                     <tr>
                         <td>Price:</td>
                         <td>{response.price}</td>
-                    </tr>
-                    <tr>
-                        <td>Category:</td>
-                        <td>{response.category}</td>
                     </tr>
                     <tr>
                         <td colSpan={2}><button onClick={() => callback()}>Close</button></td>

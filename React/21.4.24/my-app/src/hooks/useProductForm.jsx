@@ -7,10 +7,9 @@ const useProductForm = (callback, selectedProduct) => {
     const [product, setProduct] = useState(!selectedProduct ? new Product() : selectedProduct);
     const [errors, setErrors] = useState(null);
 
-    const [response, error, isLoading, callAPI, method] = useApi();
+    const {response, callAPI, method} = useApi();
 
     const handleChange = (e) => {
-
         const currProduct = new Product(product.id, product.title, product.price, product.quantity);
         currProduct.updateField(e.target.name, e.target.value)
 
@@ -19,10 +18,11 @@ const useProductForm = (callback, selectedProduct) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        
         const loaclErrors = product.validate();
         if (Object.keys(loaclErrors).length === 0) {
             if (isCreateMode) {
-
+                
                 const currProduct = new Product(product.id, product.title, product.price, product.quantity);
                 delete currProduct.id;
 
@@ -46,14 +46,13 @@ const useProductForm = (callback, selectedProduct) => {
     useEffect(() => {
         if (response) {
                 const newProduct = new Product(response.id, response.title, response.price, response.quantity);
-            if (method===METHOD.UPDATE) {
-                console.log(product);
-                callback(product)
+            if (method === METHOD.UPDATE || method === METHOD.CREATE) {
+                callback(newProduct)
             }else{
                 setProduct(newProduct)
             }
         }
-    }, [response, method])
+    }, [response])
 
     useEffect(() => {
         if (errors) {

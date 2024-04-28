@@ -39,7 +39,7 @@ const useApi = () => {
                     break;
 
                 case METHOD.DELETE:
-
+                    responseData = await axios.delete(URL + payload.id);
                     break;
             }
 
@@ -75,7 +75,7 @@ const useApi = () => {
     }
 
 
-    return [response, error, isLoading, callAPI, method]
+    return {response, error, isLoading, callAPI, method}
 }
 
 export const METHOD = {

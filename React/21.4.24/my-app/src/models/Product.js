@@ -24,13 +24,6 @@ export class Product extends Entity {
                 formErrors['price'] = 'Price must be between 1 and 9,999.'
             }
         }
-        if (!this.quantity) {
-            formErrors['quantity'] = 'Product Quantity must be defined.'
-        } else {
-            if (this.quantity <= 0 || this.quantity >= 10_000) {
-                formErrors['quantity'] = 'Quantity must be between 1 and 9,999.'
-            }
-        }
 
         return formErrors;
     }

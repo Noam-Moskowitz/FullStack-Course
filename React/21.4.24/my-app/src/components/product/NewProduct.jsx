@@ -17,13 +17,13 @@ const NewProduct = (props) => {
                     <tbody>
                         <tr>
                             <td>
-                                <label htmlFor='pName'>Product Name:</label>
+                                <label htmlFor='title'>Product Name:</label>
                             </td>
                             <td>
                                 <input
                                     type="text"
-                                    id='pName'
-                                    name='pName'
+                                    id='title'
+                                    name='title'
                                     onChange={handleChange}
                                 />
                             </td>
@@ -44,21 +44,7 @@ const NewProduct = (props) => {
                             </td>
                             {errors && errors['price']}
                         </tr>
-                        <tr>
-                            <td>
-                                <label htmlFor='quantity'>Quantity:</label>
-                            </td>
-                            <td>
-                                <input
-                                    type="number"
-                                    id='quantity'
-                                    name='quantity'
-                                    min={0}
-                                    onChange={handleChange}
-                                />
-                            </td>
-                            {errors && errors['quantity']}
-                        </tr>
+                    
                         <tr>
                             <td colSpan={2} style={{ textAlign: 'right' }}>
                                 <input type="submit" value="Submit" />
