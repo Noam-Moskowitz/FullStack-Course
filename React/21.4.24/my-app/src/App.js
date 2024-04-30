@@ -4,7 +4,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import FormsMain from './components/forms/FormsMain';
 import Learning from './components/learning/Learning';
-import themeContext from './Contexts/ThemeContext';
+import {ThemeProvider} from './Contexts/ThemeContext';
 
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
 
-      <themeContext.Provider value="light">
+      <ThemeProvider >
 
         <BrowserRouter>
 
@@ -44,7 +44,7 @@ function App() {
 
         </BrowserRouter>
 
-      </themeContext.Provider>
+      </ThemeProvider>
     </div>
   );
 }

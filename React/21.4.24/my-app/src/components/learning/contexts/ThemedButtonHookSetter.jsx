@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import themeContext from '../../../Contexts/ThemeContext'
 
 
@@ -6,10 +6,12 @@ const ThemedButtonHookSetter = () => {
 
     const [theme, setTheme] = useContext(themeContext);
 
+  
+
     return (
         <div>
             <button style={{ backgroundColor: theme }}
-                onClick={() => setTheme(`black`)}>Click Me</button>
+                onClick={() => setTheme(theme===`darkgrey`? `white`: `darkgrey`)}>Click Me</button>
         </div>
     )
 }
