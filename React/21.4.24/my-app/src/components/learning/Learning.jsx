@@ -15,6 +15,9 @@ import RandomNumber from './RandomNumber/RandomNumber'
 import AccountingUsingHook from './accountingUsingHook/AccountingUsingHook'
 import ClockHook from './ClockHook'
 import ProductListApi from './API/ProductListApi'
+import ThemedButton from './contexts/ThemedButton'
+import ThemedButtonHook from './contexts/ThemedButtonHook'
+import ThemedButtonHookSetter from './contexts/ThemedButtonHookSetter'
 
 
 function Learning() {
@@ -27,6 +30,9 @@ function Learning() {
     return (
         <div>
             <h3>Learning</h3>
+            <ThemedButton />
+            <ThemedButtonHook />
+            <ThemedButtonHookSetter />
             <ProductListApi />
             <ClockHook />
             <AccountingUsingHook />

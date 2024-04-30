@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from 'react'
+import React, { useEffect, useState, useReducer, useContext } from 'react'
 import { PRODUCTS, Product } from '../../models/Product'
 import NewProduct from './NewProduct';
 import './productList.css'
@@ -6,10 +6,13 @@ import ProductView from './ProductView';
 import ProductEdit from './ProductEdit';
 import ProductConfirmDelete from './ProductConfirmDelete';
 import useApi, { METHOD } from '../../hooks/useApi';
+import APIContext from '../../Contexts/APIContext';
+
 
 
 const ProductList = () => {
 
+    const URL = useContext(APIContext)
 
 
     const UI_STATE = {
@@ -97,10 +100,10 @@ const ProductList = () => {
 
 
     const [state, dispatch] = useReducer(reducer, initialState);
-    const {response, error, isLoading, callAPI} = useApi();
+    const { response, error, isLoading, callAPI } = useApi();
 
     useEffect(() => {
-        callAPI(`https://fakestoreapi.com/products`, METHOD.GET_ALL)
+        callAPI(URL, METHOD.GET_ALL)
     }, [])
 
     useEffect(() => {

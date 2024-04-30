@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import './productDelete.css'
-import useApi,{METHOD} from '../../hooks/useApi'
+import useApi, { METHOD } from '../../hooks/useApi'
+import APIContext from '../../Contexts/APIContext'
 
 const ProductConfirmDelete = ({ selectedProduct, callbackReject, callbackConfirm }) => {
 
-    const {response, callAPI} = useApi();
+    const URL = useContext(APIContext)
+    const { response, callAPI } = useApi();
 
-    useEffect(()=>{
+    useEffect(() => {
         if (response) {
-        callbackConfirm(selectedProduct)
+            callbackConfirm(selectedProduct)
         }
 
-    },[response])
+    }, [response])
 
 
     return (
@@ -32,14 +34,14 @@ const ProductConfirmDelete = ({ selectedProduct, callbackReject, callbackConfirm
                         <td>{selectedProduct.price}</td>
                     </tr>
                     <tr>
-                        <td 
+                        <td
                             onClick={() => {
-                                callAPI(`https://fakestoreapi.com/products/`, METHOD.DELETE, {id:selectedProduct.id}); 
-                                }} 
+                                callAPI(URL, METHOD.DELETE, { id: selectedProduct.id });
+                            }}
                             colSpan={2}>
-                                <button>Yes</button>
+                            <button>Yes</button>
                         </td>
-                        <td onClick={()=>callbackReject()} colSpan={2}><button>No</button></td>
+                        <td onClick={() => callbackReject()} colSpan={2}><button>No</button></td>
                     </tr>
                 </tbody>
             </table>

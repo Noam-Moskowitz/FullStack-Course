@@ -2,6 +2,7 @@ import './Home.css';
 import React, { Component } from 'react';
 import ProductList from './product/ProductList';
 import PageHeader from './PageHeader';
+import APIContext from '../Contexts/APIContext';
 
 
 
@@ -10,7 +11,10 @@ class Home extends Component {
     render() {
         return (
             <div className='home'>
-                <ProductList />
+                <APIContext.Provider value='https://fakestoreapi.com/products/'>
+                    <ProductList />
+                </APIContext.Provider>
+
                 <PageHeader />
 
 

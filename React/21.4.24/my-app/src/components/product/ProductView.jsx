@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import useApi, { METHOD } from '../../hooks/useApi'
+import APIContext from '../../Contexts/APIContext';
 
 function ProductView({ product, callback }) {
 
-    const {response, error, isLoading, callAPI} = useApi();
+    const { response, error, isLoading, callAPI } = useApi();
+    const URL = useContext(APIContext);
 
     useEffect(() => {
-        callAPI(`https://fakestoreapi.com/products/`, METHOD.GET_ONE, { id: product.id })
+        callAPI(URL, METHOD.GET_ONE, { id: product.id })
     }, [])
 
     if (isLoading) return <div>Loading..</div>

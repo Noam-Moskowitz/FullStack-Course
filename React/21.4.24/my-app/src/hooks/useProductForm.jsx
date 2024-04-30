@@ -1,13 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Product } from "../models/Product";
 import useApi, { METHOD } from "./useApi";
+import APIContext from "../Contexts/APIContext";
 
 const useProductForm = (callback, selectedProduct) => {
+
+    const URL = useContext(APIContext)
+
     const [isCreateMode] = useState(selectedProduct ? false : true)
     const [product, setProduct] = useState(!selectedProduct ? new Product() : selectedProduct);
     const [errors, setErrors] = useState(null);
 
-    const {response, callAPI, method} = useApi();
+    const { response, callAPI, method } = useApi();
 
     const handleChange = (e) => {
         const currProduct = new Product(product.id, product.title, product.price, product.quantity);
@@ -18,17 +22,17 @@ const useProductForm = (callback, selectedProduct) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        
+
         const loaclErrors = product.validate();
         if (Object.keys(loaclErrors).length === 0) {
             if (isCreateMode) {
-                
+
                 const currProduct = new Product(product.id, product.title, product.price, product.quantity);
                 delete currProduct.id;
 
-                callAPI(`https://fakestoreapi.com/products/`, METHOD.CREATE, currProduct)
+                callAPI(URL, METHOD.CREATE, currProduct)
             } else {
-                callAPI(`https://fakestoreapi.com/products/`, METHOD.UPDATE, product)
+                callAPI(URL, METHOD.UPDATE, product)
             }
         } else {
             setErrors(loaclErrors)
@@ -37,18 +41,18 @@ const useProductForm = (callback, selectedProduct) => {
     }
 
 
-    useEffect(()=>{
-        if(!isCreateMode){
+    useEffect(() => {
+        if (!isCreateMode) {
             callAPI(`https://fakestoreapi.com/products/`, METHOD.GET_ONE, product)
         }
-    },[])
+    }, [])
 
     useEffect(() => {
         if (response) {
-                const newProduct = new Product(response.id, response.title, response.price, response.quantity);
+            const newProduct = new Product(response.id, response.title, response.price, response.quantity);
             if (method === METHOD.UPDATE || method === METHOD.CREATE) {
                 callback(newProduct)
-            }else{
+            } else {
                 setProduct(newProduct)
             }
         }
