@@ -1,0 +1,30 @@
+.confirm-table {
+    padding: 10px;
+    text-align: center;
+}
+
+.confirm-table thead tr {
+    background-color: lightblue;
+}
+
+.confirm-table td {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.confirm-table td button {
+    width: 100%;
+}
+
+.confirm-table td button:hover {
+    cursor: pointer;
+}
+
+.product-display :nth-child(even) {
+    background-color: rgb(235, 235, 235);
+}
+
+.product-display :nth-child(odd) {
+    background-color: lightgray;
+}
