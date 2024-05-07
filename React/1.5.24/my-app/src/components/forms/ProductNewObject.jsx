@@ -2,24 +2,24 @@ import React, { useState } from 'react'
 
 const ProductNewObject = () => {
 
-    const [product, setProduct]=useState({
-        name:``,
-        price:0,
-        amount:0
+    const [product, setProduct] = useState({
+        name: ``,
+        price: 0,
+        amount: 0
     });
 
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
 
     }
 
-    const handleChange=(e)=>{
-        const key=e.target.name;
+    const handleChange = (e) => {
+        const key = e.target.name;
         const value = e.target.value;
 
         setProduct({
-            ...product, 
-            [key]:value
+            ...product,
+            [key]: value
         })
     }
 
@@ -29,7 +29,7 @@ const ProductNewObject = () => {
                 <table>
                     <tbody>
                         <tr>
-                            <td>
+                            <td className=''>
                                 <label htmlFor='productName'>Product Name</label>
                             </td>
                             <td>
@@ -38,7 +38,7 @@ const ProductNewObject = () => {
                                     id='name'
                                     name='name'
                                     onChange={handleChange}
-                                    />
+                                />
                             </td>
                         </tr>
                         <tr>
@@ -51,7 +51,7 @@ const ProductNewObject = () => {
                                     id='price'
                                     name='price'
                                     onChange={handleChange}
-                                    />
+                                />
                             </td>
                         </tr>
                         <tr>
@@ -64,11 +64,11 @@ const ProductNewObject = () => {
                                     id='amount'
                                     name='amount'
                                     onChange={handleChange}
-                                    />
+                                />
                             </td>
                         </tr>
                         <tr>
-                            <td colSpan={2} style={{textAlign:'right'}}>
+                            <td colSpan={2} style={{ textAlign: 'right' }}>
                                 <input type="submit" value="Submit" />
                             </td>
                         </tr>

@@ -24,8 +24,8 @@ const ProductList = () => {
     }
 
     const ACTION_TYPES = {
-        PRODUCT_HOVERED:`PRODUCT_HOVERED`,
-        PRODUCT_UNHOVERED:`PRODUCT_UNHOVERED`,
+        PRODUCT_HOVERED: `PRODUCT_HOVERED`,
+        PRODUCT_UNHOVERED: `PRODUCT_UNHOVERED`,
         PRODUCTS_RECEIVED: `PRODUCTS_RECEIVED`,
         PRODUCT_CREATE: `PRODUCT_CREATE`,
         PRODUCT_CREATED: `PRODUCT_CREATED`,
@@ -40,7 +40,7 @@ const ProductList = () => {
 
     const initialState = {
         selectedProduct: null,
-        hoveredProduct:null,
+        hoveredProduct: null,
         uiState: UI_STATE.NONE,
         products: []
     }
@@ -53,7 +53,7 @@ const ProductList = () => {
                 return { ...state, hoveredProduct: action.payload }
             case ACTION_TYPES.PRODUCT_UNHOVERED:
 
-                return { ...state, hoveredProduct: null}
+                return { ...state, hoveredProduct: null }
 
             case ACTION_TYPES.PRODUCTS_RECEIVED:
 
@@ -135,9 +135,9 @@ const ProductList = () => {
             <h2>Product List</h2>
             <div className='product-list-container'>
                 <div>
-                    <button onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_CREATE, payload: null })}>Add New Product</button>
+                    <button className='bg-red-200' onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_CREATE, payload: null })}>Add New Product</button>
 
-                    <table className='product-list-form' onMouseLeave={()=>dispatch({type:ACTION_TYPES.PRODUCT_UNHOVERED})} >
+                    <table className='product-list-form' onMouseLeave={() => dispatch({ type: ACTION_TYPES.PRODUCT_UNHOVERED })} >
                         <thead>
                             <tr>
                                 <td>ID</td>
@@ -148,25 +148,25 @@ const ProductList = () => {
                         </thead>
                         <tbody>
                             {state.products && state.products.map(product => (
-                                <tr key={product.id} 
-                                    className={state.hoveredProduct && state.hoveredProduct.id===product.id ? `hoveredProduct` : ``}
-                                    onMouseEnter={()=>dispatch({type: ACTION_TYPES.PRODUCT_HOVERED , payload:product})}
+                                <tr key={product.id}
+                                    className={state.hoveredProduct && state.hoveredProduct.id === product.id ? `hoveredProduct` : ``}
+                                    onMouseEnter={() => dispatch({ type: ACTION_TYPES.PRODUCT_HOVERED, payload: product })}
                                     onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_VIEW, payload: product })}
                                 >
                                     <td>{product.id}</td>
                                     <td>{product.title}</td>
                                     <td>{product.price}</td>
                                     <td>
-                                        {state.hoveredProduct && state.hoveredProduct.id===product.id && (
+                                        {state.hoveredProduct && state.hoveredProduct.id === product.id && (
                                             <div>
                                                 <button onClick={(e) => {
-                                                        e.stopPropagation()
-                                                        dispatch({ type: ACTION_TYPES.PRODUCT_EDIT, payload: product })
-                                                    }}>Edit</  button>
+                                                    e.stopPropagation()
+                                                    dispatch({ type: ACTION_TYPES.PRODUCT_EDIT, payload: product })
+                                                }}>Edit</  button>
                                                 <button onClick={(e) => {
-                                                        e.stopPropagation()
-                                                        dispatch({ type: ACTION_TYPES.PRODUCT_DELETE, payload: product })
-                                                    }}>Delete</button>
+                                                    e.stopPropagation()
+                                                    dispatch({ type: ACTION_TYPES.PRODUCT_DELETE, payload: product })
+                                                }}>Delete</button>
                                             </div>
                                         )}
                                     </td>
