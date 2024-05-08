@@ -5,25 +5,26 @@ import { useDispatch } from 'react-redux';
 
 const AddTodo = () => {
 
-    const [text, setText]= useState(``);
+    const [text, setText] = useState(``);
 
     const dispatch = useDispatch()
 
-    const addTodoHandler = (e)=>{
+    const addTodoHandler = (e) => {
         e.preventDefault()
         dispatch(addTodo(text))
         setText(``);
     }
 
     return (
-        <div>
+        <div className='pl-10'>
             <form onSubmit={addTodoHandler}>
-                <input 
+                <input
+                    className='border-2 border-black'
                     type="text"
                     value={text}
-                    onChange={(e)=> setText(e.target.value)}
+                    onChange={(e) => setText(e.target.value)}
                 />
-                <button>Add Todo</button>
+                <button className='btn text-sm ml-4'>Add Todo</button>
             </form>
         </div>
     )

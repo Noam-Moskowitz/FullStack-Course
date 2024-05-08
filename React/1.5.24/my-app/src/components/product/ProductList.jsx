@@ -135,7 +135,7 @@ const ProductList = () => {
             <h2>Product List</h2>
             <div className='product-list-container'>
                 <div>
-                    <button className='bg-red-200' onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_CREATE, payload: null })}>Add New Product</button>
+                    <button className='btn hover:font-bold transition-all ease-out duration-150' onClick={() => dispatch({ type: ACTION_TYPES.PRODUCT_CREATE, payload: null })}>Add New Product</button>
 
                     <table className='product-list-form' onMouseLeave={() => dispatch({ type: ACTION_TYPES.PRODUCT_UNHOVERED })} >
                         <thead>
@@ -146,7 +146,7 @@ const ProductList = () => {
                                 <td>Actions</td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             {state.products && state.products.map(product => (
                                 <tr key={product.id}
                                     className={state.hoveredProduct && state.hoveredProduct.id === product.id ? `hoveredProduct` : ``}
@@ -162,11 +162,15 @@ const ProductList = () => {
                                                 <button onClick={(e) => {
                                                     e.stopPropagation()
                                                     dispatch({ type: ACTION_TYPES.PRODUCT_EDIT, payload: product })
-                                                }}>Edit</  button>
+                                                }}
+                                                    className='btn hover:font-bold transition-all ease-out duration-150'
+                                                >Edit</  button>
                                                 <button onClick={(e) => {
                                                     e.stopPropagation()
                                                     dispatch({ type: ACTION_TYPES.PRODUCT_DELETE, payload: product })
-                                                }}>Delete</button>
+                                                }}
+                                                    className='btn hover:font-bold transition-all ease-out duration-150'
+                                                >Delete</button>
                                             </div>
                                         )}
                                     </td>
@@ -175,7 +179,7 @@ const ProductList = () => {
                         </tbody>
                     </table>
                 </div>
-                {state.uiState !== UI_STATE.NONE && <div className='p-5 position-fixed top-40 start-50 border border-5 rounded border-primary bg-primary-subtle d-flex justify-content-center align-items-center'>
+                {state.uiState !== UI_STATE.NONE && <div className='absolute top-52 right-52 bg-blue-200 p-8 rounded-lg border-4 border-black'>
                     {state.uiState === UI_STATE.CREATE && <NewProduct callback={
                         (product) => dispatch({ type: ACTION_TYPES.PRODUCT_CREATED, payload: product })} />}
 

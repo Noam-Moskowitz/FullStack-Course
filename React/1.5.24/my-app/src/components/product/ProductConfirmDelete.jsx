@@ -39,9 +39,9 @@ const ProductConfirmDelete = ({ selectedProduct, callbackReject, callbackConfirm
                                 callAPI(URL, METHOD.DELETE, { id: selectedProduct.id });
                             }}
                             colSpan={2}>
-                            <button>Yes</button>
+                            <button className='btn'>Yes</button>
                         </td>
-                        <td onClick={() => callbackReject()} colSpan={2}><button>No</button></td>
+                        <td onClick={() => callbackReject()} colSpan={2}><button className='btn'>No</button></td>
                     </tr>
                 </tbody>
             </table>

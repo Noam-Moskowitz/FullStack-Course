@@ -32,7 +32,7 @@ function ProductView({ product, callback }) {
                         <td>{response.price}</td>
                     </tr>
                     <tr>
-                        <td colSpan={2}><button onClick={() => callback()}>Close</button></td>
+                        <td colSpan={2}><button className='btn' onClick={() => callback()}>Close</button></td>
                     </tr>
                 </tbody>
             </table>

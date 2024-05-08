@@ -5,7 +5,7 @@ import useProductForm from '../../hooks/useProductForm';
 
 const NewProduct = (props) => {
 
-    const [product, errors, handleChange, handleSubmit]= useProductForm(props.callback)
+    const [product, errors, handleChange, handleSubmit] = useProductForm(props.callback)
 
 
 
@@ -44,10 +44,10 @@ const NewProduct = (props) => {
                             </td>
                             {errors && errors['price']}
                         </tr>
-                    
+
                         <tr>
                             <td colSpan={2} style={{ textAlign: 'right' }}>
-                                <input type="submit" value="Submit" />
+                                <input className='btn' type="submit" value="Submit" />
                             </td>
                         </tr>
                     </tbody>

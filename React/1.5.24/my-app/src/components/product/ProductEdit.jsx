@@ -3,7 +3,7 @@ import './newProduct.css'
 import useProductForm from '../../hooks/useProductForm'
 
 const ProductEdit = ({ selectedProduct, callback }) => {
-    const [product, errors, handleChange, handleSubmit]= useProductForm(callback, selectedProduct)
+    const [product, errors, handleChange, handleSubmit] = useProductForm(callback, selectedProduct)
 
 
 
@@ -62,7 +62,7 @@ const ProductEdit = ({ selectedProduct, callback }) => {
                         </tr>
                         <tr>
                             <td colSpan={2} style={{ textAlign: 'right' }}>
-                                <input type="submit" value="Submit" />
+                                <input className='btn' type="submit" value="Submit" />
                             </td>
                         </tr>
                     </tbody>
