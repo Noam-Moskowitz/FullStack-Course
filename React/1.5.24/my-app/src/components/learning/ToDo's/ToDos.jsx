@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { removeTodo } from './TodosSlice';
 import { useDispatch } from 'react-redux';
@@ -8,13 +8,20 @@ const ToDos = () => {
     const todosState = useSelector(store => store.todos);
     const dispatch = useDispatch()
     const [selectedTodo, setSelectedTodo] = useState()
+    const [actions, setActions] = useState()
 
-    const handleDelete = () => {
-        if (selectedTodo) {
+    const ACTIONS = {
+        DELETE: "DELETE",
+        EDIT: "EDIT"
+    }
+
+    useEffect(() => {
+        if (actions === ACTIONS.DELETE) {
+            console.log(`delete`);
             dispatch(removeTodo(selectedTodo))
         }
+    }, [actions])
 
-    }
 
     return (
         <div className='pl-10 '>
@@ -27,7 +34,7 @@ const ToDos = () => {
                     <li>
                         <button
                             className='btn uppercase text-sm rounded-md'
-                            onClick={() => { setSelectedTodo(todo); handleDelete() }}
+                            onClick={() => { setSelectedTodo(todo); setActions(ACTIONS.DELETE) }}
                         >delete</button>
                     </li>
                 </ul>
