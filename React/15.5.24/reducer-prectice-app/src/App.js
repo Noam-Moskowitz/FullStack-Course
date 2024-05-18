@@ -1,7 +1,9 @@
 import './App.css';
+import NewProduct from './components/NewProduct';
 import ProductDetails from './components/ProductDetails';
 import ProductGallery from './components/ProductGallery';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import UpdateProduct from './components/UpdateProduct';
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
       <BrowserRouter>
 
         <Routes>
+          <Route path='/new_product' element={<NewProduct/>}/>
+          <Route path='/update_product/:product_id' element={<UpdateProduct/>}/>
           <Route path='products/:product_id' element={<ProductDetails/>} />
           <Route path='/' element={<ProductGallery/>} />
         </Routes>

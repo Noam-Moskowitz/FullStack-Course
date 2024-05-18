@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { Link } from 'react-router-dom';
 
 const ProductGallery = () => {
@@ -22,8 +22,14 @@ const ProductGallery = () => {
         }
     }
 
-    const changeLink = (id)=>{
-
+    const removeItem = async(id)=>{
+        try {
+            const response = await axios.delete(`https://api.escuelajs.co/api/v1/products/${id}`)
+            const newProductList = products.filter(product=> product.id!==id)
+            setProducts(newProductList);
+        } catch (error) {
+            setError(error)
+        }
     }
 
     useEffect(()=>{
@@ -37,6 +43,13 @@ const ProductGallery = () => {
         
     return (
         <div className='flex justify-center'>
+            <div>
+                <Link to={`/new_product`}>
+                    <button className='btn mt-2 hover:bg-blue-100'>
+                        Add New Product
+                    </button>
+                </Link>
+            </div>
             <div onMouseLeave={()=> setHoveredItem(null)} className='w-4/6 grid grid-cols-3 grid-rows-3 p-36 gap-8  '>
                 {products.map(product=>(
                     <div
@@ -56,8 +69,15 @@ const ProductGallery = () => {
                             </p>
                             {hoveredItem===product && (
                                 <div className=''>
-                                    <button className='text-sm bg-gray-200 p-1 rounded hover:bg-gray-100 '>Edit</button>
-                                    <button className='text-sm bg-gray-200 p-1 rounded hover:bg-gray-100 ml-2'>Delete</button>
+                                    <Link to={`/update_product/${product.id}`}>
+                                        <button className='text-sm bg-gray-200 p-1 rounded hover:bg-gray-100 '>Edit</button>
+                                    </Link>
+                                    <button 
+                                        onClick={()=>removeItem(product.id)}
+                                        className='text-sm bg-gray-200 p-1 rounded hover:bg-gray-100 ml-2'
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             )}
                         </div>
