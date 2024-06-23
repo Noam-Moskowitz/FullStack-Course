@@ -17,7 +17,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>home</h1>
+            <h1 className='frame'>home</h1>
             <ul>
             {data && data.map(s=>(
                 <li key={s.id}>{s.firsName}</li>

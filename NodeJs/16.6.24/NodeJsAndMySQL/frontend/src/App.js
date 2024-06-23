@@ -5,6 +5,7 @@ import Students from './components/Students';
 import Nav from './components/Nav';
 import Average from './components/Average';
 import AverageCity from './components/AverageCity';
+import StudentGrades from './components/StudentGrades';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
               <Route path='/' element={<p>Welcome</p>}/>
               <Route path='/average' element={<Average/>}/>
               <Route path='/cities' element={<AverageCity/>}/>
+              <Route path='/student/:studentId/grades' element={<StudentGrades/>}/>
             </Routes>
         </BrowserRouter>
       

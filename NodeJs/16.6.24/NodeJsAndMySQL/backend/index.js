@@ -47,6 +47,7 @@ app.get(`/students`,(req,res)=>{
 
 app.get(`/students/average`,(req,res)=>{
     con.query(`SELECT
+                    s.id,
                     s.firstName,
                     s.lastName,
                     AVG(tg.grade) AS average
@@ -74,14 +75,26 @@ app.get(`/students/city/average`,(req,res)=>{
         res.send(result);
     })
 });
-app.get(`/students/:id`,(req,res)=>{
 
+app.get(`/students/:id`,(req,res)=>{
     const {id}= req.params;
-    con.query(`SELECT * FROM students WHERE id= ?;`,[id], (err, result)=>{
+
+    con.query(`SELECT * FROM students WHERE students.id = ?;`,[id], (err, user)=>{
+
         if (err) {
             throw err
         }
 
-        res.send(result.pop());
+
+    con.query(`SELECT test_grades.id, tests.name, test_grades.grade FROM test_grades LEFT JOIN tests ON tests.id = test_grades.testId WHERE test_grades.studentId = ?;`,[id], (err, grades)=>{
+        if (err) {
+            throw err
+        }
+
+        res.send({
+            user,
+            grades
+        });
     })
+})
 });
