@@ -2,6 +2,7 @@ const express = require(`express`);
 const mysql=require(`mysql2`);
 const cors = require('cors');
 const app = express();
+app.use(express.json())
 
 const con = mysql.createConnection({
     host:`localhost`,
@@ -86,7 +87,17 @@ app.get(`/students/:id`,(req,res)=>{
         }
 
 
-    con.query(`SELECT test_grades.id, tests.name, test_grades.grade FROM test_grades LEFT JOIN tests ON tests.id = test_grades.testId WHERE test_grades.studentId = ?;`,[id], (err, grades)=>{
+    con.query(`
+        SELECT 
+            test_grades.id, tests.name, test_grades.grade 
+        FROM 
+            test_grades 
+        LEFT JOIN 
+            tests 
+        ON 
+            tests.id = test_grades.testId 
+        WHERE 
+            test_grades.studentId = ?;`,[id], (err, grades)=>{
         if (err) {
             throw err
         }
@@ -97,4 +108,14 @@ app.get(`/students/:id`,(req,res)=>{
         });
     })
 })
+});
+
+app.put("/students/:studentId", (req, res) => {
+    const { studentId } = req.params;
+    const grades = req.body;
+    for (const g of grades) {
+        con.query("UPDATE test_grades SET grade = ? WHERE id = ? AND studentId = ?", [g.grade, g.id, studentId]);
+    }
+    
+    res.end();
 });
