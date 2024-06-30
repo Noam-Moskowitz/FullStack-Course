@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import moment from 'moment'
 import { useNavigate } from 'react-router-dom';
+import { GeneralContext } from '../App';
 
 const Average = () => {
     const [data, setData]=useState([])
     const [lowest,setLowest]=useState();
     const [highest,setHighest]=useState();
+    const {setIsLoading} = useContext(GeneralContext)
 
     const navigate=useNavigate();
 
     const getData = async () => {
+        setIsLoading(true)
         const response=await axios.get(`http://localhost:4000/students/average`)
 
         setData(response.data)
@@ -25,7 +28,7 @@ const Average = () => {
 
         setLowest(Math.min(...numbers))
         setHighest(Math.max(...numbers))
-
+        setIsLoading(false)
     },[data])
 
 

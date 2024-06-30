@@ -119,3 +119,126 @@ app.put("/students/:studentId", (req, res) => {
     
     res.end();
 });
+
+app.get(`/dashboard/students/amount`, (req,res)=>{
+    con.query(`SELECT COUNT(*) amount FROM students`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result[0].amount.toString());
+    })
+})
+
+app.get(`/dashboard/cities/amount`, (req,res)=>{
+    con.query(`SELECT COUNT(DISTINCT city) amount FROM students`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result[0].amount.toString());
+    })
+})
+
+app.get(`/dashboard/tests/avg`, (req,res)=>{
+    con.query(`SELECT AVG(grade) avg  FROM test_grades`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result[0].avg.toString());
+    })
+})
+app.get(`/dashboard/stuents/grades/highest`, (req,res)=>{
+    con.query(`SELECT
+                    s.firstName,
+                    s.lastName,
+                    AVG(tg.grade) grade
+                FROM
+                    test_grades AS tg
+                LEFT JOIN students AS s
+                ON
+                    s.id = tg.studentId
+                GROUP BY
+                    s.id
+                ORDER BY
+                    grade
+                DESC
+                LIMIT 1;
+`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result.pop());
+    })
+})
+
+app.get(`/dashboard/tests/avg`, (req,res)=>{
+    con.query(`SELECT AVG(grade) avg  FROM test_grades`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result[0].avg.toString());
+    })
+})
+app.get(`/dashboard/cities/grades/highest`, (req,res)=>{
+    con.query(`SELECT
+                    s.city,
+                    AVG(tg.grade) grade
+                FROM
+                    test_grades AS tg
+                LEFT JOIN students AS s
+                ON
+                    s.id = tg.studentId
+                GROUP BY
+                    s.id
+                ORDER BY
+                    grade
+                DESC
+                LIMIT 1;
+`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result.pop());
+    })
+})
+app.get(`/dashboard/students/birthday`, (req,res)=>{
+    con.query(`SELECT 
+                firstName, 
+                lastName, 
+                TIMESTAMPDIFF(YEAR, birthday,
+                CURDATE()) AS age 
+            FROM 
+                students 
+            WHERE MONTH(birthday) = MONTH(CURRENT_DATE);
+`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result);
+    })
+})
+app.get(`/tests`, (req,res)=>{
+    con.query(`  SELECT
+            t.id,
+            t.name,
+            AVG(tg.grade)
+        FROM
+            tests AS t
+        LEFT JOIN test_grades AS tg
+        ON
+            t.id = tg.testId
+        GROUP BY
+            t.id`,(err, result)=>{
+        if (err) {
+            throw err;
+        }
+
+        res.send(result);
+    })
+})

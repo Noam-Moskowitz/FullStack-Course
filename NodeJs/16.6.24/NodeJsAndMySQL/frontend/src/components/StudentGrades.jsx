@@ -1,6 +1,7 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { GeneralContext } from '../App'
 
 export const duplicateObject=(object)=>{
     return JSON.parse(JSON.stringify(object))
@@ -12,7 +13,7 @@ const StudentGrades = () => {
 
     const [data, setData]=useState()
     const [initialData, setInitialData]=useState()
-    const [isLoading, setIsLoading]=useState(false)
+    const {setIsLoading} = useContext(GeneralContext)
 
     const fetchData=async()=>{
         try {
@@ -26,7 +27,7 @@ const StudentGrades = () => {
         }finally{
             setIsLoading(false)
         }
-        }
+    }
 
     const gradeChange=(ev,i)=>{
         const {value}=ev.target
@@ -56,9 +57,6 @@ const StudentGrades = () => {
 
     return (
         <div className='frame'>
-           {isLoading&& <div className='loaderFrame'>
-                <div class="loader"></div>
-            </div>}
             {data &&
                 <div>
                     <header className='student'>

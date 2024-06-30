@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios';
 import moment from 'moment'
+import { GeneralContext } from '../App';
 
 const Students = () => {
     const [data, setData]=useState([])
+    const {setIsLoading} = useContext(GeneralContext)
 
     const getData = async () => {
+        setIsLoading(true)
         const response=await axios.get(`http://localhost:4000/students`)
 
         setData(response.data)
+        setIsLoading(false)
     };
 
     useEffect(()=>{
