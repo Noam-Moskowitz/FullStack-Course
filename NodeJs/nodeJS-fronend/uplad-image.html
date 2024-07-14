@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload image</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script>
+        const imageChange = (ev) => {
+            const [file] = ev.target.files;
+
+            if (!file) {
+                document.getElementById(`img-preview`).src = ''
+                document.getElementById(`uploadBtn`).disabled = true;
+                return
+            }
+            const reader = new FileReader();
+            reader.onload = e => {
+                document.getElementById(`img-preview`).src = e.target.result
+                document.getElementById(`uploadBtn`).disabled = false;
+            }
+
+            reader.readAsDataURL(file)
+        }
+
+        function send(ev) {
+            ev.preventDefault();
+            const data = new FormData();
+            data.append('file', ev.target.elements.file.files[0]);
+            fetch('http://localhost:4000/files/upload', {
+                method: 'POST',
+                body: data,
+            })
+                .then(() => {
+                    location.href = './';
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <form action="http://localhost:4000/files/upload" enctype="multipart/form-data" method="post"
+        onsubmit="send(event)">
+        <h1>העלאת קובץ</h1>
+        <input type="file" name="file" onchange="imageChange(event)">
+        <img id="img-preview" width="100%">
+        <button type="submit" id="uploadBtn" disabled>העלאה</button>
+    </form>
+</body>
+
+</html>
