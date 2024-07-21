@@ -11,6 +11,8 @@ main().catch(err=>console.log(err))
 
 export const app = express()
 
+app.use(express.json())
+
 app.use(cors({
     origin: true,
     methods: 'GET,PUT,POST,DELETE,OPTIONS',
@@ -27,3 +29,4 @@ app.get(`/`,(req,res)=>{
 })
 
 import ('./handlers/users/users.mjs');
+import (`./handlers/users/auth.mjs`)
