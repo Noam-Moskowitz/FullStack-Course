@@ -1,10 +1,11 @@
 import mongoose from 'mongoose'
 import {app} from '../../app.mjs'
 import { userSchema } from './users.mongo.mjs'
+import { guard } from '../guard.mjs'
 
 export const User=mongoose.model('users',userSchema)
 
-app.get('/users',async(req,res)=>{
+app.get('/users', guard,async(req,res)=>{
     res.send(await User.find())
 })
 

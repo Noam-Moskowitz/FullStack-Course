@@ -14,6 +14,8 @@ app.post(`/login`,async (req,res)=>{
         return res.status(403).send(`email or password is incorrect!`)
     }
 
+    req.session.user=user
+
     res.send(user)
 })
 
@@ -37,4 +39,20 @@ app.post(`/signup`, async (req,res)=>{
 
     res.send(newUser)
 
+})
+
+app.get(`/login`,(req,res)=>{
+    if (req.session.user){
+        res.send(req.session.user)
+    }else{
+        res.status(401).send(`user is not logged in`)
+    }
+
+    res.end()
+})
+
+app.get(`/logout`,(req,res)=>{
+    delete req.session.user
+
+    res.end()
 })
