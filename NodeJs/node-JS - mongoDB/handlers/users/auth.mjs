@@ -1,6 +1,8 @@
 import { app } from "../../app.mjs";
+import { JWT_SECRET } from "../../config.mjs";
 import { User } from "./users.mjs";
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 app.post(`/login`,async (req,res)=>{
     const {email,password}=req.body;
@@ -14,9 +16,15 @@ app.post(`/login`,async (req,res)=>{
         return res.status(403).send(`email or password is incorrect!`)
     }
 
-    req.session.user=user
+    const tokenPayload={
+        firstName:user.firstName,
+        lastName:user.lastName,
+        _id:user._id
+    }
 
-    res.send(user)
+    const token=jwt.sign(tokenPayload,JWT_SECRET,{expiresIn:`1h`})
+
+    res.send(token)
 })
 
 app.post(`/signup`, async (req,res)=>{
@@ -42,17 +50,19 @@ app.post(`/signup`, async (req,res)=>{
 })
 
 app.get(`/login`,(req,res)=>{
-    if (req.session.user){
+   /*  if (req.session.user){
         res.send(req.session.user)
     }else{
         res.status(401).send(`user is not logged in`)
     }
 
-    res.end()
+    res.end() */
+   res.status(401).send('user not logged in')
+
 })
 
 app.get(`/logout`,(req,res)=>{
-    delete req.session.user
+    /* delete req.session.user
 
-    res.end()
+    res.end() */
 })
